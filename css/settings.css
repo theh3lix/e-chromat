@@ -1,0 +1,41 @@
+.sett {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.commit {
+    position: static;
+    clear: both;
+    width: 125px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-left: 55px;
+    text-align: center;
+    height: 35px;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+}
+
+.commit:hover{
+    cursor: pointer;
+}
+
+#delete:hover {
+    border: 1px inset grey;
+    cursor: pointer;
+}
+
+#delete:active {
+    border: 0.5px inset black;
+}
+
+.polaupdate {
+    height: 25px;
+    width: 170px;
+    border: 1px outset #99ccff;
+    border-radius: 2px;
+    margin-top: 5px;
+    color: black;
+}

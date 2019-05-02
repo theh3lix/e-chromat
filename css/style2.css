@@ -1,0 +1,494 @@
+body {
+    background-image: url("/images/bkgmain3_1.jpg");
+    background-attachment: fixed;
+    opacity: 0.9;
+}
+
+.naglowek {
+    height: 15%;
+    width: 100%;
+}
+
+#logo2 {
+    height: auto;
+    margin-bottom: 30px;
+    float: left;
+    margin-left: 20%;
+}
+
+#logo2:hover{
+    cursor: pointer;
+}
+
+
+#navbar {
+    clear: both;
+    width: 80%;
+    margin-top: 40px;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ddd;
+    box-shadow: 0px 0px 7px 2px rgba(0,0,255,0.4);
+    border-radius: 3px;
+    opacity: 1;
+}
+
+
+#navbar a {
+    display: inline-block;
+    color: #0000ff;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 13%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+#navbar a:hover {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(255,0,0,0.4);
+    color: red;
+    cursor: pointer;
+
+}
+
+#navbar2 {
+    position: fixed;
+    background-color: #fff;
+    width: 0;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: block;
+    transition: 0.4s ease;
+    z-index: 500;
+    opacity: 0;
+    margin-left: -100px;
+}
+
+#navbar2.is-active {
+    width: 40%;
+    opacity: 1;
+    margin-left: 0;
+}
+
+#navbar2 a {
+    display: block;
+    color: #0000ff;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+#navbar2 a:hover {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(255,0,0,0.4);
+    cursor: pointer;
+    color: red;
+}
+
+
+#barsy {
+    clear: both;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    z-index: 999;
+}
+
+#barsy:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+#full {
+    position: static;
+    clear: both;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#main {
+    position: static;
+    clear: both;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.picks {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+#upload_file {
+    width: 100%;
+    max-width: 300px;
+    opacity: 1;
+}
+
+#dane {
+    width: 60%;
+    height: 200px;
+    border: 1px solid black;
+    margin-top: 300px;
+}
+
+.choosefile {
+    max-width: 300px;
+    margin-top: -100%;
+}
+
+.choosefile:hover {
+    cursor: pointer;
+}
+
+.select {
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    display: inline-block;
+}
+
+.submit {
+    clear: both;
+    border: 1px outset #55a4b5;
+    border-radius: 4px;
+    height: 35px;
+    font-family: 'Oswald', sans-serif;
+    color: black;
+    line-height: 15px;
+}
+
+.submit:hover{
+    border-bottom: 1px inset #55a4b5;
+    border-right: 1px inset #55a4b5;
+    border-top: 1px inset #55a4b5;
+    border-left: 1px inset #55a4b5;
+    cursor: pointer;
+}
+
+#log {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    font-family: 'Comic Sans MS', sans-serif;
+    color: black;
+}
+
+
+.commit {
+    position: absolute;
+    width: 125px;
+    float: left;
+    margin-top: 5px;
+ }
+
+
+
+.settings {
+    max-height: none !important;
+}
+
+
+.active {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(0,255,0,0.4);
+    color: green !important;
+};
+
+#rozmiary:hover {
+    cursor: crosshair;
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.app-title {
+  text-align: center;
+  font-weight: normal;
+  font-size: 2.6rem;
+}
+
+#attributes {
+    text-align: center;
+    background: none;
+    box-shadow: none;
+}
+
+
+.product {
+  clear: both;
+  position: relative;
+  max-width: 850px;
+  max-height: none;
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #ddd;
+  box-shadow: 0px 0px 7px 2px rgba(255,0,0,0.4);
+  overflow: hidden;
+  opacity: 1;
+  font-family: 'Oswald', sans-serif;
+}
+
+
+.product h4 {
+  margin: 0 0 6px 0;
+  font-size: 1.3rem;
+}
+
+.product-photo {
+  float: left;
+  max-height: 250px;
+  width: auto;
+  margin-right: 15px;
+  border-radius: 5px;
+}
+
+.product-name {
+  font-size: 1.5rem;
+  font-weight: normal;
+  margin: 0 0 1rem 0;
+  color: white;
+  text-shadow: 0px 0px 10px red, 0 0 1em red, 0 0 0.2em red;
+  letter-spacing: 2px;
+}
+
+
+.hdr {
+  box-shadow: 0px 0px 7px 2px rgba(255, 0, 0, 0.4);
+}
+
+.hdr:hover {
+  box-shadow: 0px 0px 7px 2px rgba(255, 0, 0, 0.4);
+}
+
+.trending {
+  max-width: 350px;
+  min-height: 500px;
+  display: inline-block;
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  box-shadow: 0px 0px 7px 2px rgba(255,0,0,0.4);
+}
+
+.head-name {text-align: center;}
+
+
+.species {
+  font-size: 0.85rem;
+  color: #888;
+  vertical-align: middle;
+}
+
+.zamow {
+    clear: both;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    width: 100px;
+    height: 35px;
+    font-family: 'Oswald', sans-serif;
+    background-color: #ddd;
+    border: none;
+    box-shadow: 0 0 5px 2px rgba(255,0,0,0.4);
+}
+
+.input {
+  background-color: #ddd;
+  border: none;
+  box-shadow: 0 0 5px 2px rgba(255,0,0,0.4);
+}
+
+.input:hover{
+  box-shadow: 0 0 5px 3px rgba(255,0,0,0.6);
+  background-color: white;
+}
+
+.zamow:hover {
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 0 0 5px 3px rgba(255,0,0,0.6);
+}
+
+#podglad {
+    position:absolute;
+    right: 10px;
+    bottom: 60px;
+    display: none;
+    background-color: #eeeeee;
+    z-index: 9999;
+}
+
+#podglad:hover {
+    border: 1px inset;
+    background-color: white;
+}
+
+.error {
+    position: static;
+    width: 300px;
+    height: auto;
+    top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+	  padding: 2px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+	  border: 1px solid #a94442;
+	  color: #a94442;
+	  background: #f2dede;
+	  border-radius: 5px;
+    text-align: center;
+    font-size: 8px;
+    font-family: 'Oswald', sans-serif;
+    transition: opacity 0.4s ease;
+    transition-delay: 3s;
+    opacity: 1;
+}
+.success {
+	  color: #3c763d;
+	  background: #dff0d8;
+	  border: 1px solid #3c763d;
+	  margin-bottom: 20px;
+    font-size: 10px;
+    font-family: 'Oswald',sans-serif;
+    letter-spacing: 2px;
+    font-style: italic;
+}
+.error.fout {
+    opacity: 0;
+}
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    top: -5px;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* Image preview */
+* {box-sizing: border-box}
+.mySlides {
+    display: none;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mySlides img {
+    display: block;
+    vertical-align: middle;
+    margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 3px;
+  user-select: none;
+  z-index: 9999;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+.active2{
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4; display: block;}
+  to {opacity: 1; display: none;}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text, .error {font-size: 10px}
+}
+
+
+#dane{
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.attr {
+    display: inline-block;
+    width: 190px;
+    margin: 2px 10px 2px 10px;
+    text-align: center;
+}

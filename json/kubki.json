@@ -1,0 +1,65 @@
+[
+  {
+    name: "Kubek",
+    species: "Biały",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k1.png"
+  },
+  {
+    name: "Kubek",
+    species: "Kolorowe Wnętrze",
+    material: "Ceramika",
+    colours: ["Zielony", "Niebieski", "Fioletowy", "Czarny", "Pomarańczowy", "Błękitny", "Czerwony"],
+    photo: "/images/produkty/k2.png"
+  },
+  {
+    name: "Kubek",
+    species: "Magiczny",
+    material: "Ceramika",
+    colours: ["Błękitny", "Czerwony", "Niebieski", "Czarny"],
+    photo: "/images/produkty/k3.png"
+  },
+  {
+    name: "Kubek",
+    species: "Latte",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k4.png"
+  },
+  {
+    name: "Kubek",
+    species: "Latte duży",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k5.png"
+  },
+  {
+    name: "Kubek",
+    species: "Mini",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k6.png"
+  },
+  {
+    name: "Kubek",
+    species: "z łyżeczką",
+    material: "Ceramika",
+    colours: ["Zielony", "Czerwony", "Różowy", "Żółty", "Niebieski"],
+    photo: "/images/produkty/k7.png"
+  },
+  {
+    name: "Kubek",
+    species: "szroniony",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k8.png"
+  },
+  {
+    name: "Kufel",
+    species: "Biały",
+    material: "Ceramika",
+    colours: ["Biały"],
+    photo: "/images/produkty/k9.png"
+  }
+]
