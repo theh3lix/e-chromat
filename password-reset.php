@@ -1,10 +1,10 @@
 
 <?php
 session_start();
-$hostname='***********';
-$username='***********';
-$password='***********';
-$dbname='*************';
+$hostname='mysql06.chromat.beep.pl';
+$username='theh3lix';
+$password='Chromat.1989';
+$dbname='chrappdb';
 $connection = mysql_connect($hostname, $username, $password);
 if(!$connection) {
     die("Database connection failed: " . mysql_error());

@@ -59,6 +59,30 @@ body {
 
 }
 
+#navbar div a {
+    display: inline-block;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 13%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+#navbar div a:hover {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(255,255,255,0.6);
+    color: black;
+    cursor: pointer;
+
+}
+
+
 #navbar2 {
     position: fixed;
     background-color: #000;
@@ -263,7 +287,7 @@ img {
 
 .product h4 {
   margin: 0 0 6px 0;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }
 
 .product-photo {
@@ -272,6 +296,7 @@ img {
   width: auto;
   margin-right: 15px;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .product-name {
@@ -283,14 +308,35 @@ img {
   letter-spacing: 2px;
 }
 
+.wybierz {
+  clear: both;
+  border-radius: 3px;
+  border: none;
+  background-color: #ddd;
+  box-shadow: 0 0 7px 2px rgba(64,64,64,0.6);
+  height: 33px;
+  margin-bottom: 10px;
+}
+
+.wybierz:hover {
+  cursor: pointer;
+  box-shadow: 0 0 7px 4px rgba(128,128,128,0.6);
+  background-color: white;
+}
+
 .trending {
-  max-width: 350px;
-  min-height: 500px;
+  max-width: 400px;
+  min-height: 400px;
   display: inline-block;
   text-align: left;
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.trending .product-photo {
+  max-height: 180px;
 }
 
 .head-name {text-align: center;}
@@ -415,19 +461,31 @@ img {
 }
 
 .close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    top: -5px;
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+}
+.close:hover {
+  opacity: 1;
+}
+.close:before, .close:after {
+  position: absolute;
+  left: 15px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
 }
 
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 @keyframes fadeout {
     from {opacity: 1;}
@@ -549,4 +607,92 @@ img {
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.graphic_choice {
+  padding: 20px;
+  margin: 30px auto;
+  background-color: #ddd;
+  box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.4);
+  overflow: hidden;
+  font-family: 'Oswald', sans-serif;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  height: 80%;
+  width: 80%;
+  z-index: 500;
+}
+
+.left_menu {
+    border-radius: 7px;
+    background-color: #000;
+    width: 15%;
+    height: 100%;
+    float: left;
+    left: 0;
+    top: 0;
+    display: block;
+    transition: 0.4s ease;
+    z-index: 500;
+    overflow: auto;
+}
+
+
+.left_menu a {
+    display: block;
+    color: #fff !important;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+.left_menu a:hover {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(255,255,255,0.6);
+    cursor: pointer;
+    color: black !important;
+}
+
+.left_menu a.active {
+    color: black !important;
+}
+
+.right_content {
+  width: 80%;
+  height: 100%;
+  float: right;
+  margin-left: 30px;
+  overflow: auto;
+}
+
+.graphic {
+  padding: 10px;
+  display: none;
+}
+
+.graphic img {
+  width: 200px;
+  height: auto;
+  border-radius: 2px;
+}
+
+.graphic img:hover {
+  box-shadow: 0 0 7px 2px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.selected {
+  box-shadow: 0 0 7px 4px rgba(0,0,0,0.7);
+}
+
+.selected:hover {
+  box-shadow: 0 0 7px 4px rgba(0,0,0,0.7) !important;
 }

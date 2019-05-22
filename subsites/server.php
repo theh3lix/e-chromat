@@ -1,19 +1,22 @@
 <?php
 
-session_start();
-$hostname='************';
-$username='************';
-$password='************';
-$dbname='**************';
-$connection = mysql_connect($hostname, $username, $password);
-if(!$connection) {
-    die("Database connection failed: " . mysql_error());
-}
-$dbselect=mysql_select_db($dbname);
-if(!$dbselect) {
-	die("Database selection failed: " . mysql_error());
-}
-mysql_query("SET NAMES utf8");
+    session_start();
+    $hostname='*********';
+    $username='*********';
+    $password='*********';
+    $dbname='*******';
+    $connection = mysql_connect($hostname, $username, $password);
+    if(!$connection) {
+        die("Database connection failed: " . mysql_error());
+    }
+    $dbselect=mysql_select_db($dbname);
+    if(!$dbselect) {
+    	die("Database selection failed: " . mysql_error());
+    }
+    mysql_query("SET NAMES utf8");
+
+
+
 
 if(isset($_POST['remember_mail'])) {
     $mail = mysql_real_escape_string($_POST['mailtoremember']);
@@ -43,6 +46,9 @@ if(isset($_POST['remember_mail'])) {
       $output .= "Jeśli nie spodziewałeś się tego maila, pewnie dobrym pomysłem byłoby zalogowanie się do aplikacji i zmiana hasła, bo ktoś mógł je odgadnąć.\n";
       $output .= "Dziękujemy,\n";
       $output .= "Chromat\n";
+      $output .= "-------------------------------------------------------------------------------------------\n";
+      $output .= "Wiadomość ta została wygenerowana automatycznie i nie należy na nią odpowiadać!\n";
+
       $body = $output;
       $subject = "Odzyskiwanie hasła - e-chromat";
       $from = "noreply@chromat.pl";
@@ -164,14 +170,11 @@ if(isset($_SESSION['username'])) {
             if(!$newfolder) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy tworzeniu folderu<br>';
             }
-            $txt=$folder1 . $login . ".txt";
-            $filetxt=fopen($txt, "w") or die("Unable to open file!");
-            fwrite($filetxt, $teikste);
+
             $cnt =0;
             $cena = 0;
             $b=0;
             $cnt9 = 0;
-            $cnt10 = 0;
             $cnt13 = 0;
             $cnt15 = 0;
             $cnt20 = 0;
@@ -226,7 +229,7 @@ if(isset($_SESSION['username'])) {
                     if($roz === "9x13")
                         $cnt9 += $a;
                     else if($roz === "10x15")
-                        $cnt10 += $a;
+                        $cnt9 += $a;
                     else if($roz === "13x18")
                         $cnt13 += $a;
                     else if($roz === "15x21")
@@ -242,73 +245,63 @@ if(isset($_SESSION['username'])) {
             }
                 if(!isset($_SESSION['error'])){
 
-                    if($cnt9 < 101) {
-                        $cena += $cnt9 * 0.44;
+                    if($cnt9 < 11) {
+                        $cena += $cnt9 * 0.74;
+                    } else if($cnt9 > 10 && $cnt9 < 101){
+                        $cena += $cnt9 * 0.59;
                     } else if($cnt9 > 100 && $cnt9 < 201) {
-                        $cena += $cnt9 * 0.38;
+                        $cena += $cnt9 * 0.50;
                     } else if($cnt9 > 200 && $cnt9 < 301) {
-                        $cena += $cnt9 * 0.35;
+                        $cena += $cnt9 * 0.47;
                     } else if($cnt9 > 300 && $cnt9 < 501) {
-                        $cena += $cnt9 * 0.33;
+                        $cena += $cnt9 * 0.44;
                     } else if($cnt9 > 500 && $cnt9 < 1001) {
-                        $cena += $cnt9 * 0.31;
+                        $cena += $cnt9 * 0.41;
                     } else if($cnt9 > 1000 && $cnt9 < 2001) {
-                        $cena += $cnt9 * 0.29;
+                        $cena += $cnt9 * 0.39;
                     } else {
-                        $cena += $cnt9 * 0.24;
+                        $cena += $cnt9 * 0.33;
                     }
 
-                    if($cnt10 < 101) {
-                        $cena += $cnt10 * 0.52;
-                    } else if($cnt10 > 100 && $cnt10 < 201) {
-                        $cena += $cnt10 * 0.44;
-                    } else if($cnt10 > 200 && $cnt10 < 301) {
-                        $cena += $cnt10 * 0.41;
-                    } else if($cnt10 > 300 && $cnt10 < 501) {
-                        $cena += $cnt10 * 0.39;
-                    } else if($cnt10 > 500 && $cnt10 < 1001) {
-                        $cena += $cnt10 * 0.36;
-                    } else if($cnt10 > 1000 && $cnt10 < 2001) {
-                        $cena += $cnt10 * 0.34;
-                    } else {
-                        $cena += $cnt10 * 0.28;
-                    }
-
-                    if($cnt13 < 101) {
-                        $cena += $cnt13 * 0.74;
+                    if($cnt13 < 11) {
+                        $cena += $cnt13 * 1.12;
+                    } else if($cnt13 > 10 && $cnt13 < 101) {
+                        $cena += $cnt13 * 0.89;
                     } else if($cnt13 > 100 && $cnt13 < 201) {
-                        $cena += $cnt13 * 0.63;
+                        $cena += $cnt13 * 0.76;
                     } else if($cnt13 > 200 && $cnt13 < 301) {
-                        $cena += $cnt13 * 0.59;
+                        $cena += $cnt13 * 0.71;
                     } else if($cnt13 > 300 && $cnt13 < 501) {
-                        $cena += $cnt13 * 0.56;
+                        $cena += $cnt13 * 0.67;
                     } else if($cnt13 > 500 && $cnt13 < 1001) {
-                        $cena += $cnt13 * 0.52;
+                        $cena += $cnt13 * 0.62;
                     } else if($cnt13 > 1000 && $cnt13 < 2001) {
-                        $cena += $cnt13 * 0.48;
+                        $cena += $cnt13 * 0.58;
                     } else {
-                        $cena += $cnt13 * 0.41;
+                        $cena += $cnt13 * 0.49;
                     }
 
-
-                    if($cnt15 < 101) {
-                        $cena += $cnt15 * 0.90;
+                    if($cnt15 < 11) {
+                        $cena += $cnt15 * 1.49;
+                    } else if($cnt15 > 10 && $cnt15 < 101) {
+                        $cena += $cnt15 * 1.19;
                     } else if($cnt15 > 100 && $cnt15 < 201) {
-                        $cena += $cnt15 * 0.77;
+                        $cena += $cnt15 * 1.01;
                     } else if($cnt15 > 200 && $cnt15 < 301) {
-                        $cena += $cnt15 * 0.72;
+                        $cena += $cnt15 * 0.95;
                     } else if($cnt15 > 300 && $cnt15 < 501) {
-                        $cena += $cnt15 * 0.68;
+                        $cena += $cnt15 * 0.89;
                     } else if($cnt15 > 500 && $cnt15 < 1001) {
-                        $cena += $cnt15 * 0.63;
+                        $cena += $cnt15 * 0.83;
                     } else if($cnt15 > 1000 && $cnt15 < 2001) {
-                        $cena += $cnt15 * 0.59;
+                        $cena += $cnt15 * 0.78;
                     } else {
-                        $cena += $cnt15 * 0.50;
+                        $cena += $cnt15 * 0.66;
                     }
 
-
-                    if($cnt20 < 101) {
+                    if($cnt20 < 11) {
+                        $cena += $cnt20 * 3.70;
+                    } else if($cnt20 > 10 && $cnt20 < 101) {
                         $cena += $cnt20 * 2.96;
                     } else if($cnt20 > 100 && $cnt20 < 201) {
                         $cena += $cnt20 * 2.52;
@@ -323,16 +316,28 @@ if(isset($_SESSION['username'])) {
                     } else {
                         $cena += $cnt20 * 1.63;
                     }
-
+                $txt=$folder1 . $login . ".txt";
+                $filetxt=fopen($txt, "w") or die("Unable to open file!");
+                fwrite($filetxt, $teikste);
                 $teikstedwa = "Zamówienie:\n". "ilość odbitek: " . $cnt . "\ncena: " . $cena;
+                if(isset($_POST['komentarz'])) {
+                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
+                }
                 fwrite($filetxt, $teikstedwa);
-
                 $a=mysql_real_escape_string($a);
                 $cena=mysql_real_escape_string($cena);
-                $query="UPDATE Contract SET ilosc_odbitek='$a' where id=$idzlecenia";
+                $query="UPDATE Contract SET ilosc_odbitek='$cnt' where id=$idzlecenia";
                 $query2="UPDATE Contract SET cena='$cena' where id=$idzlecenia";
                 mysql_query($query);
                 mysql_query($query2);
+                $output = $teikste . "\n" . $teikstedwa;
+                $body = $output;
+                $subject = "e-chromat - zamowienie nr " . $idzlecenia;
+                $from = "noreply@chromat.pl";
+                $to = $mail;
+                $headers = "From:" . $from;
+                mail($to,$subject,$body, $headers);
                 $_SESSION['success']='Złożono zamówienie!' . "<br>Ilość odbitek: " . $cnt ."<br>Cena: ".$cena."<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                 header('Location: ../index.php');
             } else {
@@ -360,9 +365,7 @@ if(isset($_SESSION['username'])) {
         if(!$newfolder) {
             $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy tworzeniu folderu<br>';
         }
-        $txt=$folder . $login . ".txt";
-        $filetxt=fopen($txt, "w") or die("Unable to open file!");
-        fwrite($filetxt, $teikste);
+
         $a=0;
         for($i=0;$i<count($_FILES["upload_file"]["name"]);$i++)
         {
@@ -423,7 +426,14 @@ if(isset($_SESSION['username'])) {
                     header('Location: ../index.php');
                 }
 
+                $txt=$folder . $login . ".txt";
+                $filetxt=fopen($txt, "w") or die("Unable to open file!");
+                fwrite($filetxt, $teikste);
                 $teikstedwa = "\nRozmiar wydruków na płótnie: " . $rozmiar . "\nilość: " . $a . "\ncena: " . $cena;
+                if(isset($_POST['komentarz'])) {
+                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
+                }
                 fwrite($filetxt, $teikstedwa);
 
                 $a=mysql_real_escape_string($a);
@@ -432,6 +442,13 @@ if(isset($_SESSION['username'])) {
                 $query2="UPDATE Contract SET cena='$cena' where id=$idzlecenia";
                 mysql_query($query);
                 mysql_query($query2);
+                $output = $teikste . "\n" . $teikstedwa;
+                $body = $output;
+                $subject = "e-chromat - zamowienie nr " . $idzlecenia;
+                $from = "noreply@chromat.pl";
+                $to = $mail;
+                $headers = "From:" . $from;
+                mail($to,$subject,$body, $headers);
                 $_SESSION['success']='Złożono zamówienie!' . "<br>Wydruk na płótnie o wymiarach: " . $rozmiar . "<br>Ilość: " . $a . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                 header('Location: ../index.php');
         } else {
@@ -447,6 +464,7 @@ if(isset($_SESSION['username'])) {
         $material = mysql_real_escape_string($_POST['material']);
         $kolor = mysql_real_escape_string($_POST['kolory']);
         $cena = mysql_real_escape_string($_POST['cena']);
+        $grafikaurl = mysql_real_escape_string($_POST['foto']);
 
             $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
             mysql_query($query);
@@ -462,41 +480,44 @@ if(isset($_SESSION['username'])) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy tworzeniu folderu<br>';
             }
             $txt=$folder . $login . ".txt";
-
-            $file = $_FILES['upload_file'];
-            $fileName = $file['name'];
-            $fileTmpName = $file['tmp_name'];
-            $fileError = $file['error'];
-            $fileExt = explode('.', $fileName);
-            $fileActualExt = strtolower(end($fileExt));
-
-            print $fileName;
-            $allowed = array('jpg', 'jpeg', 'png');
-            if(in_array($fileActualExt, $allowed)) {
-                $uploadfile=$_FILES["upload_file"]["tmp_name"];
-                $upload = move_uploaded_file($uploadfile, $folder.$_FILES["upload_file"]["name"]);
-                if(!$upload) {
-                    echo "Bład wysyłania pliku";
-                    $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy wysyłaniu pliku<br>';
-                }
+            $grafikaurl = $_SERVER['DOCUMENT_ROOT'] . $grafikaurl;
+            if(!is_file($grafikaurl)) {
+                $_SESSION['error'] = $_SESSION['error'] . 'Zła ścieżka do pliku!<br>';
+                $_SESSION['error'] = $_SESSION['error'] . 'Zły URL: ' . $grafikaurl . '<br>';
+                header('Location: ../index.php');
             } else {
-                echo "Niedozwolony format pliku";
-                $_SESSION['error'] = $_SESSION['error'] . 'Niedozwolony format pliku<br>';
+                $dest = $folder . "graphic.jpg";
+                $cp = copy($grafikaurl, $dest);
+                if(!$cp) {
+                    $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy kopiowaniu pliku<br>';
+                }
+                $filetxt=fopen($txt, "w") or die("Unable to open file!");
+                $teikstedwa = "\n" . $nazwa ."\nKolor: " . $kolor . "\nCena: " . $cena . "\n URL zdjęcia: " . $grafikaurl;
+                if(isset($_POST['komentarz'])) {
+                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
+                }
+                fwrite($filetxt, $teikste);
+                fwrite($filetxt, $teikstedwa);
+                $output = $teikste . "\n" . $teikstedwa;
+                $body = $output;
+                $subject = "e-chromat - zamowienie nr " . $idzlecenia;
+                $from = "noreply@chromat.pl";
+                $to = $mail;
+                $headers = "From:" . $from;
+                mail($to,$subject,$body, $headers);
+                $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
+                    header('Location: ../index.php');
+                fclose($filetxt);
             }
 
-            $filetxt=fopen($txt, "w") or die("Unable to open file!");
-            $teikstedwa = "\n" . $nazwa ."\nKolor: " . $kolor . "\nCena: " . $cena;
-            fwrite($filetxt, $teikste);
-            fwrite($filetxt, $teikstedwa);
-            $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
-                header('Location: ../index.php');
     }
 
     if(isset($_POST['tekstylia'])) {
         $nazwa = mysql_real_escape_string($_POST['prodname']);
         $material = mysql_real_escape_string($_POST['material']);
         $cena = mysql_real_escape_string($_POST['cena']);
-        $foto = mysql_real_escape_string($_POST['foto']);
+        $grafikaurl = mysql_real_escape_string($_POST['foto']);
 
         $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
         mysql_query($query);
@@ -513,34 +534,36 @@ if(isset($_SESSION['username'])) {
         }
         $txt=$folder . $login . ".txt";
 
-        $file = $_FILES['upload_file'];
-        $fileName = $file['name'];
-        $fileTmpName = $file['tmp_name'];
-        $fileError = $file['error'];
-        $fileExt = explode('.', $fileName);
-        $fileActualExt = strtolower(end($fileExt));
-
-        print $fileName;
-        $allowed = array('jpg', 'jpeg', 'png');
-        if(in_array($fileActualExt, $allowed)) {
-            $uploadfile=$_FILES["upload_file"]["tmp_name"];
-            $upload = move_uploaded_file($uploadfile, $folder.$_FILES["upload_file"]["name"]);
-            if(!$upload) {
-                echo "Bład wysyłania pliku";
-                $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy wysyłaniu pliku<br>';
-            }
+        $grafikaurl = $_SERVER['DOCUMENT_ROOT'] . $grafikaurl;
+        if(!is_file($grafikaurl)) {
+            $_SESSION['error'] = $_SESSION['error'] . 'Zła ścieżka do pliku!<br>';
+            $_SESSION['error'] = $_SESSION['error'] . 'Zły URL: ' . $grafikaurl . '<br>';
+            header('Location: ../index.php');
         } else {
-            echo "Niedozwolony format pliku";
-            $_SESSION['error'] = $_SESSION['error'] . 'Niedozwolony format pliku<br>';
+            $dest = $folder . "graphic.jpg";
+            $cp = copy($grafikaurl, $dest);
+            if(!$cp) {
+                $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy kopiowaniu pliku<br>';
+            }
+            $filetxt=fopen($txt, "w") or die("Unable to open file!");
+            $teikstedwa = "\n" . $nazwa . "\nCena: " . $cena;
+            if(isset($_POST['komentarz'])) {
+              $comm = mysql_real_escape_string($_POST['komentarz']);
+              $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
+            }
+            fwrite($filetxt, $teikste);
+            fwrite($filetxt, $teikstedwa);
+            $output = $teikste . "\n" . $teikstedwa;
+            $body = $output;
+            $subject = "e-chromat - zamowienie nr " . $idzlecenia;
+            $from = "noreply@chromat.pl";
+            $to = $mail;
+            $headers = "From:" . $from;
+            mail($to,$subject,$body, $headers);
+            $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
+                    header('Location: ../index.php');
+            fclose($filetxt);
         }
-
-        $filetxt=fopen($txt, "w") or die("Unable to open file!");
-        $teikstedwa = "\n" . $nazwa . "\nCena: " . $cena;
-        fwrite($filetxt, $teikste);
-        fwrite($filetxt, $teikstedwa);
-        $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
-                header('Location: ../index.php');
-        fclose($filetxt);
     }
 
         // Zmiana hasła
@@ -675,16 +698,14 @@ if(isset($_SESSION['username'])) {
         $cellnumber = mysql_real_escape_string($_POST['cellnumber']);
         $name = mysql_real_escape_string($_POST['name']);
         $lastname = mysql_real_escape_string($_POST['lastname']);
-        $street = mysql_real_escape_string($_POST['street']);
-        $housenumber = mysql_real_escape_string($_POST['housenumber']);
-        $city = mysql_real_escape_string($_POST['city']);
-        $citycode = mysql_real_escape_string($_POST['citycode']);
 
         if (empty($username)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'Login\' musi być wypełnione!<br>'; }
         if (empty($email)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'E-Mail\' musi być wypełnione!<br>'; }
         if (empty($password)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'Hasło\' musi być wypełnione!<br>'; }
+        if (empty($name)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'Imię\' musi być wypełnione!<br>'; }
+        if (empty($lastname)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'Nazwisko\' musi być wypełnione!<br>'; }
+
         if (empty($repassword)) { $_SESSION['error'] = $_SESSION['error'] . 'Przepisz hasło!<br>'; }
-        if (empty($cellnumber) or empty($name) or empty($lastname) or empty($street) or empty($housenumber) or empty($city) or empty($citycode)) { $_SESSION['error'] = $_SESSION['error'] . 'Wypełnij wszystkie dane osobowe!<br>'; }
         $query="SELECT * FROM User WHERE login='$username'";
         $result=mysql_query($query);
         if (mysql_num_rows($result) !== 0) {
@@ -702,9 +723,10 @@ if(isset($_SESSION['username'])) {
             mysql_query($query);
 
             $id_us = mysql_insert_id();
-            $query2 = "INSERT INTO User_Details (id_us, name, lastname, street, housenumber, city, citycode, cellnumber)
-                       VALUES('$id_us', '$name', '$lastname', '$street', '$housenumber', '$city', '$citycode', '$cellnumber');";
+            $query2 = "INSERT INTO User_Details (id_us, name, lastname)
+              VALUES('$id_us', '$name', '$lastname');";
             mysql_query($query2);
+
             $_SESSION['success'] = "Możesz się teraz zalogować!";
             header('location: ../index.php');
         } else
@@ -726,7 +748,7 @@ if(isset($_SESSION['username'])) {
         if (!isset($_SESSION['error'])) {
             $password = md5($password);
             $query = "SELECT * FROM User WHERE login='$username' AND password='$password'";
-            $result = mysql_query($query);
+             $result = mysql_query($query);
             $query2 = "SELECT * FROM User WHERE email='$username' AND password='$password'";
             $result2 = mysql_query($query2);
 

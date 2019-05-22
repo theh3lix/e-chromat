@@ -36,7 +36,7 @@ if(isset($_SESSION['username'])){?>
     <div class="container-fluid" id="full" style=" margin-top: 4%;">
       <div id="err" style="position: absolute; width: 80%; top: 30%; left: 50%; transform: translate(-50%, -50%); z-index: 9999;">
           <?php if (isset($_SESSION['error'])) : ?>
-                  <div class="error" >
+                  <div class="error fadeable" >
                       <h4 style="font-size: 1.1rem;">
                           <?php
                               echo $_SESSION['error'];
@@ -81,11 +81,11 @@ if(isset($_SESSION['username'])){?>
 
     <div class="container-fluid" id="main">
         <div class="product" style="margin-top: 15%">
-        <a id="logo2" href="index.php"><img src="/images/logosmall.png"></a>
-        <div id= "login" class="login-block">
+        <div class="col-xs-12 col-md-6 half" style="float: left; margin-top: 4%; margin-left: -5%;"><a id="logo2" href="index.php"><img src="/images/logosmall.png"></a></div>
+        <div id= "login" class="login-block half col-xs-12 col-md-6">
             <form method="post" action="subsites/server.php">
-                <input id ="user" type="text" class="input"       placeholder="login/e-mail"   name="username"/>
-                <input id ="pass" type= "password" class="input"  placeholder="hasło"   name="password"/><br>
+                <input id ="user" type="text" class="input" placeholder="login/e-mail"   name="username"/>
+                <input id ="pass" type= "password" class="input"  placeholder="hasło" name="password"/><br>
                 <button id="submit2" class="btn" style="clear: both; margin-bottom: 3px;" onclick="$('#main').load('view/register.php'); return false;">Rejestruj</button>
                 <button id="submit" class="btn" type="submit" name="login_user" style="margin-bottom: 3px;">Zaloguj</button>
             </form>

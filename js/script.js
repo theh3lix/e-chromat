@@ -37,157 +37,294 @@ function ldScr(txt) {
 
 const kubkiAr = [
   {
+    id: 1,
     name: "Kubek Biały",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k1.png",
-    price: 17.9
+    price: 17.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
-    name: "Kubek Kolorowe Wnętrze",
+    id: 2,
+    name: "Kolorowe Wnętrze",
     species: "kubek",
     material: "Ceramika",
     colours: ["Zielony", "Niebieski", "Fioletowy", "Czarny", "Pomarańczowy", "Błękitny", "Czerwony"],
     photo: "/e-chromat/imagess/produkty/k2.png",
-    price: 18.9
+    price: 18.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 3,
     name: "Kubek Magiczny",
     species: "kubek",
     material: "Ceramika",
     colours: ["Błękitny", "Czerwony", "Niebieski", "Czarny"],
     photo: "/e-chromat/imagess/produkty/k3.png",
-    price: 27
+    price: 27,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 4,
     name: "Kubek Latte",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k4.png",
-    price: 19.9
-
+    price: 19.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 5,
     name: "Kubek Latte duży",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k5.png",
-    price: 23.9
+    price: 23.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 6,
     name: "Kubek Mini",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k6.png",
-    price: 15.9
+    price: 15.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 7,
     name: "Kubek z łyżeczką",
     species: "kubek",
     material: "Ceramika",
     colours: ["Zielony", "Czerwony", "Różowy", "Żółty", "Niebieski"],
     photo: "/e-chromat/imagess/produkty/k7.png",
-    price: 20.9
+    price: 20.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 8,
     name: "Kubek Szroniony",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k8.png",
-    price: 31.9
+    price: 31.9,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+    id: 9,
     name: "Kufel Biały",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k9.png",
-    price: 45
+    price: 45,
+    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   }
 ];
 const poduszkiAr = [
     {
+        id: 10,
         name: "Poduszka 40x40",
         species: "tekstylia",
         material: "Mikrofibra",
         photo: "/e-chromat/imagess/produkty/p1.png",
-        price: 26.9
+        price: 26.9,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     },
     {
+        id: 11,
         name: "Poduszka Serce",
         species: "tekstylia",
         material: "Mikrofibra",
         photo: "/e-chromat/imagess/produkty/p2.png",
-        price: 31.9
+        price: 31.9,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     },
     {
+        id: 12,
         name: "Śliniak",
         species: "tekstylia",
         material: "Włókno bambusowe",
         photo: "/e-chromat/imagess/produkty/p3.png",
-        price: 13.5
+        price: 13.5,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     }
 ];
 
 
 const tekstyliaAr = [
     {
+        id: 13,
         name: "Torba Mała",
         species: "tekstylia",
         material: "Bawełna",
         photo: "/e-chromat/imagess/produkty/t1.png",
-        price: 40
+        price: 40,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     },
     {
+        id: 14,
         name: "Fartuch",
         species: "tekstylia",
         material: "Tworzywo sztuczne",
         photo: "/e-chromat/imagess/produkty/t2.png",
-        price: 25.9
+        price: 25.9,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     },
     {
+        id: 15,
         name: "Koszulka",
         species: "tekstylia",
         material: "Bawełna",
         photo: "/e-chromat/imagess/produkty/t3.png",
-        price: 25
+        price: 25,
+        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
     }
 ];
 
 const trendingAr = [
   {
+      id: 16,
       name: "Koszulka",
       species: "tekstylia",
       material: "Bawełna",
       photo: "/e-chromat/imagess/produkty/t3.png",
-      price: 25
+      price: 25,
+      desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
+      id: 17,
       name: "Poduszka 40x40",
       species: "tekstylia",
       material: "Mikrofibra",
       photo: "/e-chromat/imagess/produkty/p1.png",
-      price: 26.9
+      price: 26.9,
+      desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
   },
   {
-    name: "Kubek Magiczny",
-    species: "kubek",
-    material: "Ceramika",
-    colours: ["Błękitny", "Czerwony", "Niebieski", "Czarny"],
-    photo: "/e-chromat/imagess/produkty/k3.png",
-    price: 27
+      id: 18,
+      name: "Torba Mała",
+      species: "tekstylia",
+      material: "Bawełna",
+      photo: "/e-chromat/imagess/produkty/t1.png",
+      price: 40,
+      desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+  }
+];
+
+const dzienMatkiAr = [
+  {
+      category: 'dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama1.jpg"
+  },
+  {
+      category: 'dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama2.jpg"
+  },
+  {
+      category: 'dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama3.jpg"
+  },
+  {
+      category: 'dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama4.jpg"
+  },
+  {
+      category: 'dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama5.jpg"
+  },
+  {
+      category: 'dzienojca dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama6.jpg"
+  },
+  {
+      category: 'dzienojca dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama7.jpg"
+  },
+  {
+      category: 'dzienojca dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama8.jpg"
+  },
+  {
+      category: 'dzienojca dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama9.jpg"
+  },
+  {
+      category: 'dzienojca dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama10.jpg"
+  },
+  {
+      category: 'dzienbabci dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama11.jpg"
+  },
+  {
+      category: 'dzienbabci dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama12.jpg"
+  },
+  {
+      category: 'dzienbabci dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama13.jpg"
+  },
+  {
+      category: 'dzienbabci dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama14.jpg"
+  },
+  {
+      category: 'dzienbabci dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama15.jpg"
+  },
+  {
+      category: 'dziendziadka dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama16.jpg"
+  },
+  {
+      category: 'dziendziadka dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama17.jpg"
+  },
+  {
+      category: 'dziendziadka dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama18.jpg"
+  },
+  {
+      category: 'dziendziadka dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama19.jpg"
+  },
+  {
+      category: 'dziendziadka dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama20.jpg"
+  },
+  {
+      category: 'urodziny dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama21.jpg"
+  },
+  {
+      category: 'urodziny dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama22.jpg"
+  },
+  {
+      category: 'urodziny dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama23.jpg"
+  },
+  {
+      category: 'urodziny dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama24.jpg"
+  },
+  {
+      category: 'urodziny dzienmamy',
+      src: "/e-chromat/imagess/produkty/dzien_matki/kubmama25.jpg"
   }
 ];
 
 
 function kolor(kolory) {
   return `
-<h4 style="float: left;padding-right: 10px; margin-top: 3px;">Kolor: \t</h4> <select name="kolory" class="foods-list input" style="height: 35px;margin-bottom: 10px; ">
+<h4 style="float: left;padding-right: 10px; margin-top: 7px;">Kolor: \t</h4> <select name="kolory" class="foods-list input" style="height: 35px;margin-bottom: 10px; margin-top: 4px;">
 ${kolory.map(kolor => `<option value="${kolor}">${kolor}</option>`).join("")}
 </select>
 `;
@@ -203,6 +340,7 @@ function productTemplate(product) {
             ${product.colours ? kolor(product.colours) : ""} <br>
             <h4 style="display: inline-block;">Grafika: \t</h4> <input type="file" style="display: inline-block;" id="${product.name}" name="upload_file" required></input>
             <input type="submit" onclick="return ret('${product.name}');" value="Zamów" name="${product.species}" class="zamow"/>
+            <textarea rows="3" style="font-size: 12px; clear: both; margin-top: 10px;" cols="40" name="komentarz" placeholder="Komentarz do zamówienia"></textarea>
             <input type="hidden" name="prodname" value="${product.name}" />
             <input type="hidden" name="material" value="${product.material}" />
             <input type="hidden" name="cena" value="${product.price}" />
@@ -212,20 +350,80 @@ function productTemplate(product) {
   `;
 }
 
+function graphicTemplate(graphics, productid) {
+  return `<div class="graphic ${graphics.category}"><img src="${graphics.src}" onclick="$('.graphic img').removeClass('selected');
+                                                                                $(this).addClass('selected');
+                                                                                $('#btn${productid}').css('backgroundColor', 'white');
+                                                                                $('#btn${productid}').css('boxShadow', '0 0 7px 2px rgba(0,255,0,0.6)');
+                                                                                $('#${productid}').css('display', 'none');
+                                                                                $('#${productid}-foto').attr({value: '${graphics.src}'});"/></div>`;
+}
+
+
 function trendingTemplate(product) {
   return `
     <div class="product trending col-xs-12 col-md-6">
         <form method="post" action=${server} enctype="multipart/form-data">
             <img class="product-photo" src="${product.photo}">
-            <h2 class="product-name" style="clear: both;">${product.name}</h2>
+            <h2 class="product-name" style="float: left;">${product.name}</h2><br><br>
+            <button class="wybierz" id="btn${product.id}" onclick="document.getElementById('${product.id}').style.display='block'; return false;">Wybierz grafikę</button>
             <h4>Materiał: ${product.material}</h4>
-            ${product.colours ? kolor(product.colours) : ""} <br>
-            <h4 style="display: inline-block;">Grafika: \t</h4> <input type="file" style="display: inline-block;" id="${product.name}" name="upload_file" required></input>
+            ${product.colours ? kolor(product.colours) : ""} <br><br>
+            <p style="clear: both;
+              left: 10px;
+              bottom: 10px;
+              font-size: 12px;
+              background-color: white;
+              border-radius: 3px;
+              padding: 5px;
+              margin-top: 10px;
+              width: 60%;">${product.desc}</p>
             <input type="submit" onclick="return ret('${product.name}');" value="Zamów" name="${product.species}" class="zamow"/>
+            <div class="graphic_choice" style="display: none;" id="${product.id}">
+              <button type="button" onclick="document.getElementById('${product.id}').style.display='none'; return false;" class="close" aria-label="Close">
+                  <span aria-hidden="true" style="opacity: 0;">&times;</span>
+              </button>
+              <div class="left_menu">
+                <br><br><br>
+                <a class="dzien_mamy" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienmamy').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ MAMY</a><br>
+                <a class="dzien_ojca" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienojca').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ OJCA</a><br>
+                <a class="dzien_babci" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienbabci').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ BABCI</a><br>
+                <a class="dzien_dziadka" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dziendziadka').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ DZIADKA</a><br>
+                <a class="urodziny" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.urodziny').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">URODZINY</a><br>
+              </div>
+              <div class="right_content" id="inmain">
+                ${dzienMatkiAr.map(function(x) {return graphicTemplate(x,product.id);}).join("")}
+              </div>
+            </div>
             <input type="hidden" name="prodname" value="${product.name}" />
             <input type="hidden" name="material" value="${product.material}" />
             <input type="hidden" name="cena" value="${product.price}" />
-            <input type="hidden" name="foto" value="${product.photo}" />
+            <input type="hidden" id="${product.id}-foto" name="foto" value=""/>
         </form>
     </div>
   `;
@@ -235,21 +433,27 @@ function trendingTemplate(product) {
 $(document).ready(function(){
     $(".tekstylia").click(function(){
         document.getElementById('navbar2').classList.remove('is-active');
-        document.getElementById("main").innerHTML = `${tekstyliaAr.map(productTemplate).join("")}`;
+        document.getElementById("main").innerHTML = `
+        <div class="product" style="overflow: visible; padding: 0; max-height: none; text-align: center; max-width: 90%; background: none; box-shadow: none;">
+        ${tekstyliaAr.map(trendingTemplate).join("")};</div>`;
         $('.active').removeClass("active");
         $('.tekstylia').addClass("active");
     });
 
     $(".kubki").click(function(){
         document.getElementById('navbar2').classList.remove('is-active');
-        document.getElementById("main").innerHTML = `${kubkiAr.map(productTemplate).join("")}`;
+        document.getElementById("main").innerHTML = `
+        <div class="product" style="overflow: visible; padding: 0; max-height: none; text-align: center; max-width: 90%; background: none; box-shadow: none;">
+        ${kubkiAr.map(trendingTemplate).join("")};</div>`;
         $('.active').removeClass("active");
         $('.kubki').addClass("active");
     });
 
     $(".poduszki").click(function(){
         document.getElementById('navbar2').classList.remove('is-active');
-        document.getElementById("main").innerHTML = `${poduszkiAr.map(productTemplate).join("")}`;
+        document.getElementById("main").innerHTML = `
+        <div class="product" style="overflow: visible; padding: 0; max-height: none; text-align: center; max-width: 90%; background: none; box-shadow: none;">
+        ${poduszkiAr.map(trendingTemplate).join("")};</div>`;
         $('.active').removeClass("active");
         $('.poduszki').addClass("active");
     });
@@ -271,9 +475,10 @@ $(document).ready(function(){
             <option value=\'100x150\'>100x150</option>\n\
             <option value=\'100x200\'>100x200</option>\n\
         </select>\n\
+        <textarea rows="3" style="display: block; font-size: 10px; clear: both; margin-top: 7px;" cols="40" name="komentarz" placeholder="Komentarz do zamówienia"></textarea>
         <input type=\'submit\' onclick="return ret('wydrukiIn');" id=\'submitplotna\' class=\'zamow\' name=\'plotna\' value=\'Wyślij\'/> <br>\n\
     </form>
-    <button id='podglad' class='zamow' onclick="
+    <button id='podglad' style='float: right;' class='zamow' onclick="
         if(document.getElementById('gallery').style.display=='none'){
             document.getElementById('podglad').style.backgroundColor='white';
             document.getElementById('podglad').style.boxShadow='0 0 5px 3px rgba(0,255,0,0.6)';
@@ -311,14 +516,15 @@ $(document).ready(function(){
                     <option value=\'dopasuj\'>Dopasuj</option>\n\
                 </select>\n\<br>
                 <select class=\'select input\' name=\'powierzchnia\' id=\'selectpowierzchnia\'>\'\n\
-                    <option value=\'przytnij\'>Mat</option>\n\
-                    <option value=\'dopasuj\'>Błysk</option>\n\
+                    <option value=\'mat\'>Mat</option>\n\
+                    <option value=\'błysk\'>Błysk</option>\n\
                 </select>\n\<br>
                 <select class=\'select input\' name=\'sepia\' id=\'selectsepia\'>'\n\
                   <option value=\'Domyślne\'>Domyślne</option>\n\
                   <option value=\'Czarno-białe\'>Czarno-białe</option>\n\
                   <option value=\'Sepia\'>Sepia</option>\n\
                 </select>\n\
+                <textarea rows="3" style="display: block; font-size: 10px; clear: both; margin-top: 7px;" cols="40" name="komentarz" placeholder="Komentarz do zamówienia"></textarea>
         <button id='podglad' class='zamow' onclick="
         if(document.getElementById('gallery').style.display=='none'){
             document.getElementById('podglad').style.backgroundColor='white';
