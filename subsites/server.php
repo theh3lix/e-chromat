@@ -1,10 +1,10 @@
 <?php
 
     session_start();
-    $hostname='*********';
-    $username='*********';
-    $password='*********';
-    $dbname='*******';
+    $hostname='**********';
+    $username='**********';
+    $password='**********';
+    $dbname='*********';
     $connection = mysql_connect($hostname, $username, $password);
     if(!$connection) {
         die("Database connection failed: " . mysql_error());

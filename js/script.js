@@ -356,6 +356,8 @@ function graphicTemplate(graphics, productid) {
                                                                                 $('#btn${productid}').css('backgroundColor', 'white');
                                                                                 $('#btn${productid}').css('boxShadow', '0 0 7px 2px rgba(0,255,0,0.6)');
                                                                                 $('#${productid}').css('display', 'none');
+                                                                                $('.graphic').css('display', 'none');
+                                                                                $('.left_menu .active').removeClass('active');
                                                                                 $('#${productid}-foto').attr({value: '${graphics.src}'});"/></div>`;
 }
 
@@ -380,7 +382,10 @@ function trendingTemplate(product) {
               width: 60%;">${product.desc}</p>
             <input type="submit" onclick="return ret('${product.name}');" value="Zamów" name="${product.species}" class="zamow"/>
             <div class="graphic_choice" style="display: none;" id="${product.id}">
-              <button type="button" onclick="document.getElementById('${product.id}').style.display='none'; return false;" class="close" aria-label="Close">
+              <button type="button" onclick="document.getElementById('${product.id}').style.display='none';
+                                            $('.graphic').css('display', 'none');
+                                            $('.left_menu .active').removeClass('active');
+                                            return false;" class="close" aria-label="Close">
                   <span aria-hidden="true" style="opacity: 0;">&times;</span>
               </button>
               <div class="left_menu">
