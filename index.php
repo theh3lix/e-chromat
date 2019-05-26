@@ -19,7 +19,7 @@ if(isset($_SESSION['username'])){?>
                 <a class="wydruki">PŁÓTNA</a><br>
                 <a class="odbitki">ODBITKI</a><br>
                 <a class="ustawienia">USTAWIENIA</a><br>
-                <a href="http://chromat.pl">CHROMAT.PL</a><br>
+                <a href="http://chromat.pl" target="_blank">chromat.pl</a><br>
         </div>
         <a id="barsy" class="d-block d-lg-none" onclick="document.getElementById('navbar2').classList.toggle('is-active');"><i class="fa fa-bars" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i></a>
         <a id="logo2"><img src="/images/logosmall.png"></a>
@@ -30,7 +30,7 @@ if(isset($_SESSION['username'])){?>
                 <a class="wydruki">PŁÓTNA</a>
                 <a class="odbitki">ODBITKI</a>
                 <a class="ustawienia">USTAWIENIA</a>
-                <a href="http://chromat.pl">chromat.pl</a>
+                <a href="http://chromat.pl" target="_blank">chromat.pl</a>
         </div>
     </div><br>
     <div class="container-fluid" id="full" style=" margin-top: 4%;">
@@ -80,7 +80,7 @@ if(isset($_SESSION['username'])){?>
     <div id="all">
 
     <div class="container-fluid" id="main">
-        <div class="product" style="margin-top: 15%">
+        <div class="product" style="margin-top: 15%" id="log_in">
         <div class="col-xs-12 col-md-6 half" style="float: left; margin-top: 4%; margin-left: -5%;"><a id="logo2" href="index.php"><img src="/images/logosmall.png"></a></div>
         <div id= "login" class="login-block half col-xs-12 col-md-6">
             <form method="post" action="subsites/server.php">

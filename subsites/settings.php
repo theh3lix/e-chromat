@@ -49,12 +49,12 @@
 </div>
 <div class="product" id="historia" style="clear: both; display: none; max-height: none;">
     <?php
-        $connection = mysql_connect("**********","*********","**********");
+        $connection = mysql_connect("*********","*********","*********");
         if(!$connection) {
             die("Database connection failed: " . mysql_error());
         }
 
-        $db_select = mysql_select_db("chrappdb",$connection);
+        $db_select = mysql_select_db("*********",$connection);
         if(!$db_select) {
             die("Database selection failed: " . mysql_error());
         }

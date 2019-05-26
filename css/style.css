@@ -32,7 +32,7 @@ body {
     background-color: 0;
     box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.6);
     border-radius: 3px;
-    opacity: 1;
+    opacity: 0.7;
 }
 
 
@@ -99,7 +99,7 @@ body {
 
 #navbar2.is-active {
     width: 40%;
-    opacity: 1;
+    opacity: 0.8;
     margin-left: 0;
 }
 
@@ -140,6 +140,31 @@ body {
 
 #barsy:hover {
     cursor: pointer;
+    background-color: white;
+}
+
+#barsy.is-active {
+    background-color: white !important;
+}
+
+#barsy2 {
+    clear: both;
+    top: 20px;
+    left: 20px;
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    z-index: 999;
+}
+
+#barsy2:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+#barsy2.is-active {
     background-color: white;
 }
 
@@ -308,13 +333,27 @@ img {
   letter-spacing: 2px;
 }
 
+.product-span {
+  display: block;
+  text-align: left;
+}
+
+@media only screen and (max-width: 480px) {
+  .product-span {
+    clear: both;
+    width: 200px;
+  }
+}
+
 .wybierz {
   clear: both;
+  position: relative;
   border-radius: 3px;
   border: none;
   background-color: #ddd;
   box-shadow: 0 0 7px 2px rgba(64,64,64,0.6);
   height: 33px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -615,6 +654,7 @@ img {
   background-color: #ddd;
   box-shadow: 0px 0px 7px 2px rgba(0,0,0,0.4);
   overflow: hidden;
+  opacity: 0.9;
   font-family: 'Oswald', sans-serif;
   position: fixed;
   border-radius: 10px;
@@ -636,6 +676,7 @@ img {
     display: block;
     transition: 0.4s ease;
     z-index: 500;
+    opacity: 0.7;
     overflow: auto;
 }
 
@@ -666,12 +707,67 @@ img {
     color: black !important;
 }
 
+.left_menu2 {
+    border-radius: 7px;
+    background-color: #000;
+    width: 0;
+    height: 100%;
+    float: left;
+    left: 0;
+    top: 0;
+    margin-left: -100px;
+    display: block;
+    transition: 0.4s ease;
+    opacity: 0;
+    z-index: 500;
+    overflow: auto;
+}
+
+.left_menu2.is-active {
+    width: 40%;
+    margin-left: 0;
+    opacity: 0.7;
+}
+
+.left_menu2 a {
+    display: block;
+    color: #fff !important;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    transition: 0.3s ease;
+}
+
+.left_menu2 a:hover {
+    background-color: white;
+    box-shadow: 0px 0px 7px 4px rgba(255,255,255,0.6);
+    cursor: pointer;
+    color: black !important;
+}
+
+.left_menu2 a.active {
+    color: black !important;
+}
+
+
 .right_content {
-  width: 80%;
+  width: 45%;
   height: 100%;
   float: right;
   margin-left: 30px;
   overflow: auto;
+}
+
+@media only screen and (min-width: 992px) {
+  .right_content {
+    width: 80%;
+  }
 }
 
 .graphic {

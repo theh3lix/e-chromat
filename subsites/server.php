@@ -1,9 +1,9 @@
 <?php
 
     session_start();
-    $hostname='**********';
-    $username='**********';
-    $password='**********';
+    $hostname='*********';
+    $username='*********';
+    $password='*********';
     $dbname='*********';
     $connection = mysql_connect($hostname, $username, $password);
     if(!$connection) {
@@ -53,7 +53,9 @@ if(isset($_POST['remember_mail'])) {
       $subject = "Odzyskiwanie hasła - e-chromat";
       $from = "noreply@chromat.pl";
       $to = $mail;
-      $headers = "From:" . $from;
+      $headers[] = "From:" . $from;
+      $headers[] = "MIME-Version: 1.0";
+      $headers[] = "Content-Type: text/html; charset=utf-8";
       if(!mail($to,$subject,$body, $headers)){
         $_SESSION['error'] = $_SESSION['error'] . "Błąd przy wysyłaniu maila!<br>";
         header('Location: ../index.php');
@@ -189,16 +191,16 @@ if(isset($_SESSION['username'])) {
                 $fileActualExt = strtolower(end($fileExt));
 
                 $wyp = mysql_real_escape_string($_POST[($i+1).'-wypelnienie']);
-                if($wyp=='-')
+                if($wyp=='Domyślne')
 		              $wyp=$wypelnienie;
                 $pow = mysql_real_escape_string($_POST[($i+1).'-powierzchnia']);
-                if($pow=='-')
+                if($pow=='Domyślne')
 		              $pow=$powierzchnia;
                 $roz = mysql_real_escape_string($_POST[($i+1).'-rozmiar']);
-                if($roz=='-')
+                if($roz=='Domyślne')
 		              $roz = $rozmiar;
                 $sep = mysql_real_escape_string($_POST[($i+1).'-sepia']);
-                if($sep=='-')
+                if($sep=='Domyślne')
   		            $sep=$sepia;
 
 		            $ilosc = mysql_real_escape_string($_POST[($i+1).'-ilosc']);
@@ -333,11 +335,14 @@ if(isset($_SESSION['username'])) {
                 mysql_query($query2);
                 $output = $teikste . "\n" . $teikstedwa;
                 $body = $output;
+                $body = str_replace("\n", "<br>", $body);
                 $subject = "e-chromat - zamowienie nr " . $idzlecenia;
                 $from = "noreply@chromat.pl";
                 $to = $mail;
-                $headers = "From:" . $from;
-                mail($to,$subject,$body, $headers);
+                $headers[] = "From:" . $from;
+                $headers[] = "MIME-Version: 1.0";
+                $headers[] = "Content-Type: text/html; charset=utf-8";
+                mail($to,$subject,$body, implode("\r\n",$headers));
                 $_SESSION['success']='Złożono zamówienie!' . "<br>Ilość odbitek: " . $cnt ."<br>Cena: ".$cena."<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                 header('Location: ../index.php');
             } else {
@@ -359,11 +364,13 @@ if(isset($_SESSION['username'])) {
         $newfolder=mkdir($foldertmp, 0777);
         if(!$newfolder) {
             $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy tworzeniu folderu<br>';
+            header('Location: ../index.php');
         }
         $folder = $foldertmp . $login . "/";
         $newfolder=mkdir($folder, 0777);
         if(!$newfolder) {
             $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy tworzeniu folderu<br>';
+            header('Location: ../index.php');
         }
 
         $a=0;
@@ -444,11 +451,14 @@ if(isset($_SESSION['username'])) {
                 mysql_query($query2);
                 $output = $teikste . "\n" . $teikstedwa;
                 $body = $output;
+                $body = str_replace("\n", "<br>", $body);
                 $subject = "e-chromat - zamowienie nr " . $idzlecenia;
                 $from = "noreply@chromat.pl";
                 $to = $mail;
-                $headers = "From:" . $from;
-                mail($to,$subject,$body, $headers);
+                $headers[] = "From:" . $from;
+                $headers[] = "MIME-Version: 1.0";
+                $headers[] = "Content-Type: text/html; charset=utf-8";
+                mail($to,$subject,$body, implode("\r\n",$headers));
                 $_SESSION['success']='Złożono zamówienie!' . "<br>Wydruk na płótnie o wymiarach: " . $rozmiar . "<br>Ilość: " . $a . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                 header('Location: ../index.php');
         } else {
@@ -486,13 +496,14 @@ if(isset($_SESSION['username'])) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Zły URL: ' . $grafikaurl . '<br>';
                 header('Location: ../index.php');
             } else {
-                $dest = $folder . "graphic.jpg";
+                $destname = str_replace(" ", "_", $nazwa) . ".jpg";
+                $dest = $folder . $destname;
                 $cp = copy($grafikaurl, $dest);
                 if(!$cp) {
                     $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy kopiowaniu pliku<br>';
                 }
                 $filetxt=fopen($txt, "w") or die("Unable to open file!");
-                $teikstedwa = "\n" . $nazwa ."\nKolor: " . $kolor . "\nCena: " . $cena . "\n URL zdjęcia: " . $grafikaurl;
+                $teikstedwa = "\n" . $nazwa ."\nKolor: " . $kolor . "\nCena: " . $cena;
                 if(isset($_POST['komentarz'])) {
                   $comm = mysql_real_escape_string($_POST['komentarz']);
                   $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
@@ -501,11 +512,14 @@ if(isset($_SESSION['username'])) {
                 fwrite($filetxt, $teikstedwa);
                 $output = $teikste . "\n" . $teikstedwa;
                 $body = $output;
+                $body = str_replace("\n", "<br>", $body);
                 $subject = "e-chromat - zamowienie nr " . $idzlecenia;
                 $from = "noreply@chromat.pl";
                 $to = $mail;
-                $headers = "From:" . $from;
-                mail($to,$subject,$body, $headers);
+                $headers[] = "From:" . $from;
+                $headers[] = "MIME-Version: 1.0";
+                $headers[] = "Content-Type: text/html; charset=utf-8";
+                mail($to,$subject,$body, implode("\r\n",$headers));
                 $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                     header('Location: ../index.php');
                 fclose($filetxt);
@@ -540,7 +554,8 @@ if(isset($_SESSION['username'])) {
             $_SESSION['error'] = $_SESSION['error'] . 'Zły URL: ' . $grafikaurl . '<br>';
             header('Location: ../index.php');
         } else {
-            $dest = $folder . "graphic.jpg";
+            $destname = str_replace(" ", "_", $nazwa) . ".jpg";
+            $dest = $folder . $destname;
             $cp = copy($grafikaurl, $dest);
             if(!$cp) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy kopiowaniu pliku<br>';
@@ -555,11 +570,14 @@ if(isset($_SESSION['username'])) {
             fwrite($filetxt, $teikstedwa);
             $output = $teikste . "\n" . $teikstedwa;
             $body = $output;
+            $body = str_replace("\n", "<br>", $body);
             $subject = "e-chromat - zamowienie nr " . $idzlecenia;
             $from = "noreply@chromat.pl";
             $to = $mail;
-            $headers = "From:" . $from;
-            mail($to,$subject,$body, $headers);
+            $headers[] = "From:" . $from;
+            $headers[] = "MIME-Version: 1.0";
+            $headers[] = "Content-Type: text/html; charset=utf-8";
+            mail($to,$subject,$body, implode("\r\n",$headers));
             $_SESSION['success']='Złożono zamówienie!' . "<br>" . $nazwa . "<br>Id zlecenia: " . $idzlecenia . "<br><br>Wyślemy Ci maila, kiedy zamówienie będzie gotowe :)";
                     header('Location: ../index.php');
             fclose($filetxt);

@@ -108,13 +108,17 @@ const kubkiAr = [
   },
   {
     id: 8,
-    name: "Kubek Szroniony",
+    name: "Kufel Szroniony",
     species: "kubek",
     material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k8.png",
     price: 31.9,
-    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+    desc: "Kufel szklany (szroniony) do nadruku<br>\
+    <b>Wysokość:</b> 15cm<br>\
+    <b>Średnica:</b> 8 cm<br>\
+    <b>Pole nadruku:</b> 15x20 cm<br>\
+    <b>Pojemność:</b> 500 ml"
   },
   {
     id: 9,
@@ -124,7 +128,10 @@ const kubkiAr = [
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k9.png",
     price: 45,
-    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+    desc: "Kufel ceramiczny ze złotym paskiem do nadruku metodą sublimacji.<br>\
+            <b>pojemność:</b> ok.645ml<br>\
+            <b>średnica:</b> 80mm<br>\
+            <b>wysokość:</b> 170 mm"
   }
 ];
 const poduszkiAr = [
@@ -135,7 +142,13 @@ const poduszkiAr = [
         material: "Mikrofibra",
         photo: "/e-chromat/imagess/produkty/p1.png",
         price: 26.9,
-        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+        desc: "Biała poszewka z mikrofibry z wypełnieniem i nadrukiem. <br>\
+                  <b>Rozmiar:</b> 40 x 40 cm <br> \
+                  <b>Materiał:</b> mikrofibra <br> \
+                  <b>Gramatura:</b> 180g/m2 <br>\
+                  Poszewka z zamkiem. <br>\
+                  Wzory do wyboru bądź  swój dowolny nadruk, grafika lub  tekst.<br>\
+                  Rozmiar nadruku <b>A4</b>."
     },
     {
         id: 11,
@@ -163,11 +176,14 @@ const tekstyliaAr = [
         id: 13,
         name: "Torba Mała",
         species: "tekstylia",
-        material: "Bawełna",
+        material: "Tkanina stylonowo-nylonowa",
         photo: "/e-chromat/imagess/produkty/t1.png",
         price: 40,
-        desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
-    },
+        desc: "Torba na ramię mała do nadruku metodą sublimacj, wykonana z tkaniny stylonowo-nylonowej. <br>\
+            <b>Szerokość: </b> 22 cm<br>\
+            <b>Wysokość:</b> 18 cm<br> \
+            <b>Pole nadruku:</b> 30 x 17 cm <br>\
+            <b>Kolor: </b> biały/czarny"    },
     {
         id: 14,
         name: "Fartuch",
@@ -205,118 +221,128 @@ const trendingAr = [
       material: "Mikrofibra",
       photo: "/e-chromat/imagess/produkty/p1.png",
       price: 26.9,
-      desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+      desc: "Biała poszewka z mikrofibry z wypełnieniem i nadrukiem. <br>\
+            <b>Rozmiar:</b> 40 x 40 cm <br> \
+            <b>Materiał:</b> mikrofibra <br> \
+            <b>Gramatura:</b> 180g/m2 <br>\
+            Poszewka z zamkiem. <br>\
+            Wzory do wyboru bądź  swój dowolny nadruk, grafika lub  tekst.<br>\
+            Rozmiar nadruku <b>A4</b>."
   },
   {
       id: 18,
       name: "Torba Mała",
       species: "tekstylia",
-      material: "Bawełna",
+      material: "Tkanina stylonowo-nylonowa",
       photo: "/e-chromat/imagess/produkty/t1.png",
       price: 40,
-      desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+      desc: "Torba na ramię mała do nadruku metodą sublimacj, wykonana z tkaniny stylonowo-nylonowej. <br>\
+          <b>Szerokość: </b> 22 cm<br>\
+          <b>Wysokość:</b> 18 cm<br> \
+          <b>Pole nadruku:</b> 30 x 17 cm <br>\
+          <b>Kolor: </b> biały/czarny"
   }
 ];
 
 const dzienMatkiAr = [
   {
-      category: 'dzienmamy',
+      category: 'all dzienmamy',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama1.jpg"
   },
   {
-      category: 'dzienmamy',
+      category: 'all dzienmamy',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama2.jpg"
   },
   {
-      category: 'dzienmamy',
+      category: 'all dzienmamy',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama3.jpg"
   },
   {
-      category: 'dzienmamy',
+      category: 'all dzienmamy',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama4.jpg"
   },
   {
-      category: 'dzienmamy',
+      category: 'all dzienmamy',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama5.jpg"
   },
   {
-      category: 'dzienojca dzienmamy',
+      category: 'all dzienojca',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama6.jpg"
   },
   {
-      category: 'dzienojca dzienmamy',
+      category: 'all dzienojca',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama7.jpg"
   },
   {
-      category: 'dzienojca dzienmamy',
+      category: 'all dzienojca',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama8.jpg"
   },
   {
-      category: 'dzienojca dzienmamy',
+      category: 'all dzienojca',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama9.jpg"
   },
   {
-      category: 'dzienojca dzienmamy',
+      category: 'all dzienojca',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama10.jpg"
   },
   {
-      category: 'dzienbabci dzienmamy',
+      category: 'all dzienbabci',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama11.jpg"
   },
   {
-      category: 'dzienbabci dzienmamy',
+      category: 'all dzienbabci',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama12.jpg"
   },
   {
-      category: 'dzienbabci dzienmamy',
+      category: 'all dzienbabci',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama13.jpg"
   },
   {
-      category: 'dzienbabci dzienmamy',
+      category: 'all dzienbabci',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama14.jpg"
   },
   {
-      category: 'dzienbabci dzienmamy',
+      category: 'all dzienbabci ',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama15.jpg"
   },
   {
-      category: 'dziendziadka dzienmamy',
+      category: 'all dziendziadka',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama16.jpg"
   },
   {
-      category: 'dziendziadka dzienmamy',
+      category: 'all dziendziadka',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama17.jpg"
   },
   {
-      category: 'dziendziadka dzienmamy',
+      category: 'all dziendziadka',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama18.jpg"
   },
   {
-      category: 'dziendziadka dzienmamy',
+      category: 'all dziendziadka',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama19.jpg"
   },
   {
-      category: 'dziendziadka dzienmamy',
+      category: 'all dziendziadka',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama20.jpg"
   },
   {
-      category: 'urodziny dzienmamy',
+      category: 'all urodziny',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama21.jpg"
   },
   {
-      category: 'urodziny dzienmamy',
+      category: 'all urodziny',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama22.jpg"
   },
   {
-      category: 'urodziny dzienmamy',
+      category: 'all urodziny',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama23.jpg"
   },
   {
-      category: 'urodziny dzienmamy',
+      category: 'all urodziny',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama24.jpg"
   },
   {
-      category: 'urodziny dzienmamy',
+      category: 'all urodziny',
       src: "/e-chromat/imagess/produkty/dzien_matki/kubmama25.jpg"
   }
 ];
@@ -358,6 +384,8 @@ function graphicTemplate(graphics, productid) {
                                                                                 $('#${productid}').css('display', 'none');
                                                                                 $('.graphic').css('display', 'none');
                                                                                 $('.left_menu .active').removeClass('active');
+                                                                                $('.left_menu2 .active').removeClass('active');
+                                                                                $('.left_menu2').removeClass('is-active');
                                                                                 $('#${productid}-foto').attr({value: '${graphics.src}'});"/></div>`;
 }
 
@@ -367,7 +395,7 @@ function trendingTemplate(product) {
     <div class="product trending col-xs-12 col-md-6">
         <form method="post" action=${server} enctype="multipart/form-data">
             <img class="product-photo" src="${product.photo}">
-            <h2 class="product-name" style="float: left;">${product.name}</h2><br><br>
+            <span class="product-span"><h2 class="product-name" style="float: left;">${product.name}</h2></span><br><br>
             <button class="wybierz" id="btn${product.id}" onclick="document.getElementById('${product.id}').style.display='block'; return false;">Wybierz grafikę</button>
             <h4>Materiał: ${product.material}</h4>
             ${product.colours ? kolor(product.colours) : ""} <br><br>
@@ -382,14 +410,22 @@ function trendingTemplate(product) {
               width: 60%;">${product.desc}</p>
             <input type="submit" onclick="return ret('${product.name}');" value="Zamów" name="${product.species}" class="zamow"/>
             <div class="graphic_choice" style="display: none;" id="${product.id}">
+            <a id="barsy2" class="d-block d-lg-none" onclick="$('.left_menu2').toggleClass('is-active'); $('#barsy2').toogleClass('is-active');">
+            <i class="fa fa-bars" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i></a>
               <button type="button" onclick="document.getElementById('${product.id}').style.display='none';
                                             $('.graphic').css('display', 'none');
                                             $('.left_menu .active').removeClass('active');
                                             return false;" class="close" aria-label="Close">
                   <span aria-hidden="true" style="opacity: 0;">&times;</span>
               </button>
-              <div class="left_menu">
+              <div class="left_menu d-none d-lg-block">
                 <br><br><br>
+                <a class="wszystkie" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.all').css('display', 'inline-block');
+                  $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">WSZYSTKIE</a><br>
                 <a class="dzien_mamy" onclick="
                   $('.graphic').css('display', 'none');
                   $('.dzienmamy').css('display', 'inline-block');
@@ -418,6 +454,45 @@ function trendingTemplate(product) {
                   $('.graphic').css('display', 'none');
                   $('.urodziny').css('display', 'inline-block');
                   $('.left_menu a').removeClass('active');
+                  $(this).addClass('active');
+                ">URODZINY</a><br>
+              </div>
+              <div class="left_menu2 d-block d-lg-none">
+                <br><br><br>
+                <a class="wszystkie" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.all').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
+                  $(this).addClass('active');
+                ">WSZYSTKIE</a><br>
+                <a class="dzien_mamy" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienmamy').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ MAMY</a><br>
+                <a class="dzien_ojca" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienojca').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ OJCA</a><br>
+                <a class="dzien_babci" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dzienbabci').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ BABCI</a><br>
+                <a class="dzien_dziadka" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.dziendziadka').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
+                  $(this).addClass('active');
+                ">DZIEŃ DZIADKA</a><br>
+                <a class="urodziny" onclick="
+                  $('.graphic').css('display', 'none');
+                  $('.urodziny').css('display', 'inline-block');
+                  $('.left_menu2 a').removeClass('active');
                   $(this).addClass('active');
                 ">URODZINY</a><br>
               </div>
@@ -525,7 +600,7 @@ $(document).ready(function(){
                     <option value=\'błysk\'>Błysk</option>\n\
                 </select>\n\<br>
                 <select class=\'select input\' name=\'sepia\' id=\'selectsepia\'>'\n\
-                  <option value=\'Domyślne\'>Domyślne</option>\n\
+                  <option value=\'-\'>-</option>\n\
                   <option value=\'Czarno-białe\'>Czarno-białe</option>\n\
                   <option value=\'Sepia\'>Sepia</option>\n\
                 </select>\n\
@@ -543,7 +618,7 @@ $(document).ready(function(){
 	          document.getElementById('attributes').style.display='none';
             document.getElementById('podglad').style.backgroundColor='#ddd';
             document.getElementById('podglad').style.boxShadow='0 0 5px 2px rgba(0,0,0,0.6)';
-        } return false;">Rozwiń</button>
+        } return false;">Podgląd</button>
         <input type=\'submit\' onclick="return ret('odbitkiIn');" id=\'submitodbitki\' class=\'zamow\' name=\'odbitki\' value=\'Wyślij\'/> <br>\n\
 
     </div>
@@ -659,8 +734,8 @@ function drawAttr(n) {
 	      id: n+'-rozmiar',
     }).appendTo('#img-'+n+'-attr #rozmiar');
     $('<option/>').attr({
-	value: '-',
-    }).html("-").appendTo('#'+n+'-rozmiar');
+	value: 'Domyślne',
+    }).html("Domyślne").appendTo('#'+n+'-rozmiar');
     $('<option/>').attr({
 	value: '9x13',
     }).html("9x13").appendTo('#'+n+'-rozmiar');
@@ -689,8 +764,8 @@ function drawAttr(n) {
 	id: n+'-wypelnienie',
     }).html("Wypełnienie: ").appendTo('#img-'+n+'-attr #wypelnienie');
     $('<option/>').attr({
-	value: '-',
-    }).html("-").appendTo('#'+n+'-wypelnienie');
+	value: 'Domyślne',
+    }).html("Domyślne").appendTo('#'+n+'-wypelnienie');
     $('<option/>').attr({
 	value: 'dop',
     }).html("Dopasuj").appendTo('#'+n+'-wypelnienie');
@@ -710,8 +785,8 @@ function drawAttr(n) {
 	id: n+'-powierzchnia',
     }).appendTo('#img-'+n+'-attr #powierzchnia');
     $('<option/>').attr({
-	value: '-',
-    }).html("-").appendTo('#'+n+'-powierzchnia');
+	value: 'Domyślne',
+    }).html("Domyślne").appendTo('#'+n+'-powierzchnia');
     $('<option/>').attr({
 	value: 'mat',
     }).html("Mat").appendTo('#'+n+'-powierzchnia');
@@ -730,11 +805,11 @@ function drawAttr(n) {
   id: n+'-sepia',
   }).appendTo('#img-'+n+'-attr #sepia');
     $('<option/>').attr({
-  value: '-',
-  }).html("-").appendTo('#'+n+'-sepia');
-  $('<option/>').attr({
   value: 'Domyślne',
-}).html("Domyślne").appendTo('#'+n+'-sepia');
+  }).html("Domyślne").appendTo('#'+n+'-sepia');
+  $('<option/>').attr({
+  value: '-',
+}).html("------").appendTo('#'+n+'-sepia');
     $('<option/>').attr({
   value: 'Czarno-białe',
 }).html("Czarno-białe").appendTo('#'+n+'-sepia');
@@ -754,7 +829,7 @@ function drawAttr(n) {
   class: 'input',
 	min: '1',
 	name: n+'-ilosc',
-	placeholder: 'Ilość',
+	placeholder: '1',
 	style: 'width: 70px;'
     }).appendTo('#img-'+n+'-attr #ilosc');
 }
