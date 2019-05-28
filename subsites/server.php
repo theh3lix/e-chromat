@@ -1,28 +1,22 @@
 <?php
 
     session_start();
-    $hostname='*********';
-    $username='*********';
-    $password='*********';
-    $dbname='*********';
-    $connection = mysql_connect($hostname, $username, $password);
-    if(!$connection) {
-        die("Database connection failed: " . mysql_error());
+    $hostname='********';
+    $username='********';
+    $password='********';
+    $dbname='**********';
+    $conn = new mysqli($hostname, $username, $password, $dbname);
+    if($conn->connect_errno) {
+        die("Database connection failed: " . $conn->connect_errno);
     }
-    $dbselect=mysql_select_db($dbname);
-    if(!$dbselect) {
-    	die("Database selection failed: " . mysql_error());
-    }
-    mysql_query("SET NAMES utf8");
-
-
+    $conn->set_charset("utf8");
 
 
 if(isset($_POST['remember_mail'])) {
-    $mail = mysql_real_escape_string($_POST['mailtoremember']);
+    $mail = $conn->real_escape_string($_POST['mailtoremember']);
     $query = "SELECT * FROM User where email='$mail'";
-    $result = mysql_query($query);
-    if(mysql_num_rows($result)==0) {
+    $result = $conn->query($query);
+    if($result->num_rows==0) {
       $_SESSION['error'] = $_SESSION['error'] . "Użytkownik o podanym adresie e-mail nie istnieje :(<br>";
       header('Location: ../index.php');
     } else {
@@ -31,7 +25,7 @@ if(isset($_POST['remember_mail'])) {
       $addKey = substr(md5(uniqid(rand(),1)),3,10);
       $key = $key . $addKey;
       $query = "INSERT INTO Pass_Reset VALUES ('$mail', '$key', NOW() + INTERVAL 1 HOUR, true)";
-      $res = mysql_query($query);
+      $res = $conn->query($query);
       if(!$res) {
         $_SESSION['error'] .= "Błąd przy tworzeniu klucza :/ <br>";
         header('Location: ../index.php');
@@ -68,10 +62,10 @@ if(isset($_POST['remember_mail'])) {
 }
 
 if(isset($_POST['updatePass'])) {
-    $pass1 = mysql_real_escape_string($_POST['pass1']);
-    $pass2 = mysql_real_escape_string($_POST['pass2']);
-    $email = mysql_real_escape_string($_POST['email']);
-    $key = mysql_real_escape_string($_POST['key']);
+    $pass1 = $conn->real_escape_string($_POST['pass1']);
+    $pass2 = $conn->real_escape_string($_POST['pass2']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $key = $conn->real_escape_string($_POST['key']);
 
     if($pass1 != $pass2) {
       $_SESSION['error'] .= "Hasła się nie zgadzają!<br>";
@@ -79,13 +73,13 @@ if(isset($_POST['updatePass'])) {
     } else {
       $pass = md5($pass1);
       $query = "UPDATE User SET password='$pass' where email='$email'";
-      $res = mysql_query($query);
+      $res = $conn->query($query);
       if(!$res) {
           $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy zmienianiu hasła!<br>';
           header('Location: ../index.php');
       } else {
           $query = "UPDATE Pass_Reset SET flag = false where email='".$email."' and klucz='".$key."'";
-          $result = mysql_query($query);
+          $result = $conn->query($query);
           if(!$result) {
               $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy anulowaniu tymczasowego klucza!<br>';
               header('Location: ../index.php');
@@ -97,49 +91,59 @@ if(isset($_POST['updatePass'])) {
 }
 
 if(isset($_SESSION['username'])) {
-    $login=mysql_real_escape_string($_SESSION['username']);
-    $query="SELECT id_us from User where login='$login'";
-    $tmp=mysql_query($query);
-    $id_us=mysql_result($tmp,0);
+    $login=$conn->real_escape_string($_SESSION['username']);
+    $query = "select id_us from User where login='$login'";
+    $tmp=$conn->query($query);
+    $tmp2=$tmp->fetch_assoc();
+    $id_us = $tmp2["id_us"];
 
-    $query = "select id_role from User where login='$username'";
-    $tmp = mysql_query($query);
-    $id_role = mysql_result($tmp, 0);
+    $query = "select id_role from User where login='$login'";
+    $tmp = $conn->query($query);
+    $tmp2 = $tmp->fetch_assoc();
+    $id_role = $tmp2["id_role"];
 
     //dane do wysyłki
 
     $queryimie = "SELECT name from User_Details where id_us=$id_us";
-    $tmpimie = mysql_query($queryimie);
-    $imie = mysql_result($tmpimie, 0);
+    $tmpimie = $conn->query($queryimie);
+    $tmp2 = $tmpimie->fetch_assoc();
+    $imie = $tmp2["name"];
 
     $querynazwisko = "SELECT lastname from User_Details where id_us=$id_us";
-    $tmpnazwisko = mysql_query($querynazwisko);
-    $nazwisko = mysql_result($tmpnazwisko, 0);
+    $tmpnazwisko = $conn->query($querynazwisko);
+    $tmp2 = $tmpnazwisko->fetch_assoc();
+    $nazwisko = $tmp2["lastname"];
 
     $queryulica = "SELECT street from User_Details where id_us=$id_us";
-    $tmpulica = mysql_query($queryulica);
-    $ulica = mysql_result($tmpulica, 0);
+    $tmpulica = $conn->query($queryulica);
+    $tmp2 = $tmpulica->fetch_assoc();
+    $ulica = $tmp2["street"];
 
     $querynrdomu = "SELECT housenumber from User_Details where id_us=$id_us";
-    $tmpnrdomu = mysql_query($querynrdomu);
-    $nrdomu = mysql_result($tmpnrdomu, 0);
+    $tmpnrdomu = $conn->query($querynrdomu);
+    $tmp2 = $tmpnrdomu->fetch_assoc();
+    $nrdomu = $tmp2["housenumber"];
 
     $querymiasto = "SELECT city from User_Details where id_us=$id_us";
-    $tmpmiasto = mysql_query($querymiasto);
-    $miasto = mysql_result($tmpmiasto, 0);
+    $tmpmiasto = $conn->query($querymiasto);
+    $tmp2 = $tmpmiasto->fetch_assoc();
+    $miasto = $tmp2["city"];
 
     $querykodpoczt = "SELECT citycode from User_Details where id_us=$id_us";
-    $tmpkodpoczt = mysql_query($querykodpoczt);
-    $kodpoczt = mysql_result($tmpkodpoczt, 0);
+    $tmpkodpoczt = $conn->query($querykodpoczt);
+    $tmp2 = $tmpkodpoczt->fetch_assoc();
+    $kodpoczt = $tmp2["citycode"];
 
     $querynrtel = "SELECT cellnumber from User_Details where id_us=$id_us";
-    $tmpnrtel = mysql_query($querynrtel);
-    $nrtel = mysql_result($tmpnrtel, 0);
+    $tmpnrtel = $conn->query($querynrtel);
+    $tmp2 = $tmpnrtel->fetch_assoc();
+    $nrtel = $tmp2["cellnumber"];
 
 
     $querymail = "SELECT email from User where id_us=$id_us";
-    $tmpmail = mysql_query($querymail);
-    $mail = mysql_result($tmpmail, 0);
+    $tmpmail = $conn->query($querymail);
+    $tmp2 = $tmpmail->fetch_assoc();
+    $mail = $tmp2["email"];
 
     $login = date(m)."-".date(d)."_".date(H)."-".date(i)."-".date(s)."_".$nazwisko."_".$imie;
     $login = str_replace(" ", "_", $login);
@@ -155,13 +159,13 @@ if(isset($_SESSION['username'])) {
     //odbitki
     if(isset($_POST['odbitki']))
     {
-            $rozmiar = mysql_real_escape_string($_POST['rozmiar']);
-            $wypelnienie = mysql_real_escape_string($_POST['wypelnienie']);
-            $powierzchnia = mysql_real_escape_string($_POST['powierzchnia']);
-            $sepia = mysql_real_escape_string($_POST['sepia']);
+            $rozmiar = $conn->real_escape_string($_POST['rozmiar']);
+            $wypelnienie = $conn->real_escape_string($_POST['wypelnienie']);
+            $powierzchnia = $conn->real_escape_string($_POST['powierzchnia']);
+            $sepia = $conn->real_escape_string($_POST['sepia']);
             $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, wymiary_odbitki, data) VALUES ($id_us, 'odbitki', '$rozmiar', curdate())";
-            mysql_query($query);
-            $idzlecenia=mysql_insert_id();
+            $conn->query($query);
+            $idzlecenia=$conn->insert_id();
             $foldertmp = "uploads/e-chromat_".$idzlecenia."/";
             $newfolder=mkdir($foldertmp, 0777);
             if(!$newfolder) {
@@ -190,20 +194,20 @@ if(isset($_SESSION['username'])) {
                 $fileExt = explode('.', $fileName);
                 $fileActualExt = strtolower(end($fileExt));
 
-                $wyp = mysql_real_escape_string($_POST[($i+1).'-wypelnienie']);
+                $wyp = $conn->real_escape_string($_POST[($i+1).'-wypelnienie']);
                 if($wyp=='Domyślne')
 		              $wyp=$wypelnienie;
-                $pow = mysql_real_escape_string($_POST[($i+1).'-powierzchnia']);
+                $pow = $conn->real_escape_string($_POST[($i+1).'-powierzchnia']);
                 if($pow=='Domyślne')
 		              $pow=$powierzchnia;
-                $roz = mysql_real_escape_string($_POST[($i+1).'-rozmiar']);
+                $roz = $conn->real_escape_string($_POST[($i+1).'-rozmiar']);
                 if($roz=='Domyślne')
 		              $roz = $rozmiar;
-                $sep = mysql_real_escape_string($_POST[($i+1).'-sepia']);
+                $sep = $conn->real_escape_string($_POST[($i+1).'-sepia']);
                 if($sep=='Domyślne')
   		            $sep=$sepia;
 
-		            $ilosc = mysql_real_escape_string($_POST[($i+1).'-ilosc']);
+		            $ilosc = $conn->real_escape_string($_POST[($i+1).'-ilosc']);
                 $ilosc = intval($ilosc);
                 if($ilosc==0)
                     $ilosc=1;
@@ -323,16 +327,16 @@ if(isset($_SESSION['username'])) {
                 fwrite($filetxt, $teikste);
                 $teikstedwa = "Zamówienie:\n". "ilość odbitek: " . $cnt . "\ncena: " . $cena;
                 if(isset($_POST['komentarz'])) {
-                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $comm = $conn->real_escape_string($_POST['komentarz']);
                   $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
                 }
                 fwrite($filetxt, $teikstedwa);
-                $a=mysql_real_escape_string($a);
-                $cena=mysql_real_escape_string($cena);
+                $a=$conn->real_escape_string($a);
+                $cena=$conn->real_escape_string($cena);
                 $query="UPDATE Contract SET ilosc_odbitek='$cnt' where id=$idzlecenia";
                 $query2="UPDATE Contract SET cena='$cena' where id=$idzlecenia";
-                mysql_query($query);
-                mysql_query($query2);
+                $conn->query($query);
+                $conn->query($query2);
                 $output = $teikste . "\n" . $teikstedwa;
                 $body = $output;
                 $body = str_replace("\n", "<br>", $body);
@@ -347,7 +351,7 @@ if(isset($_SESSION['username'])) {
                 header('Location: ../index.php');
             } else {
                 $query="DELETE FROM Contract where id=$idzlecenia";
-                mysql_query($query);
+                $conn->query($query);
                 rmdir($folder);
                 header('Location: ../index.php');
             }
@@ -356,10 +360,10 @@ if(isset($_SESSION['username'])) {
     if(isset($_POST['plotna']))
     {
 
-        $rozmiar = mysql_real_escape_string($_POST['rozmiar']);
+        $rozmiar = $conn->real_escape_string($_POST['rozmiar']);
         $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, wymiary_odbitki, data) VALUES ($id_us, 'wydruk na plotnie', '$rozmiar', curdate())";
-        mysql_query($query);
-        $idzlecenia=mysql_insert_id();
+        $conn->query($query);
+        $idzlecenia=$conn->insert_id();
         $foldertmp = "uploads/e-chromat_".$idzlecenia."/";
         $newfolder=mkdir($foldertmp, 0777);
         if(!$newfolder) {
@@ -438,17 +442,17 @@ if(isset($_SESSION['username'])) {
                 fwrite($filetxt, $teikste);
                 $teikstedwa = "\nRozmiar wydruków na płótnie: " . $rozmiar . "\nilość: " . $a . "\ncena: " . $cena;
                 if(isset($_POST['komentarz'])) {
-                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $comm = $conn->real_escape_string($_POST['komentarz']);
                   $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
                 }
                 fwrite($filetxt, $teikstedwa);
 
-                $a=mysql_real_escape_string($a);
-                $cena=mysql_real_escape_string($cena);
+                $a=$conn->real_escape_string($a);
+                $cena=$conn->real_escape_string($cena);
                 $query="UPDATE Contract SET ilosc_odbitek='$a' where id=$idzlecenia";
                 $query2="UPDATE Contract SET cena='$cena' where id=$idzlecenia";
-                mysql_query($query);
-                mysql_query($query2);
+                $conn->query($query);
+                $conn->query($query2);
                 $output = $teikste . "\n" . $teikstedwa;
                 $body = $output;
                 $body = str_replace("\n", "<br>", $body);
@@ -463,26 +467,26 @@ if(isset($_SESSION['username'])) {
                 header('Location: ../index.php');
         } else {
             $query="DELETE FROM Contract where id=$idzlecenia";
-            mysql_query($query);
+            $conn->query($query);
             rmdir($folder);
             header('Location: ../index.php');
         }
     }
 
     if(isset($_POST['kubek'])) {
-        $nazwa = mysql_real_escape_string($_POST['prodname']);
-        $material = mysql_real_escape_string($_POST['material']);
-        $kolor = mysql_real_escape_string($_POST['kolory']);
-        $cena = mysql_real_escape_string($_POST['cena']);
-        $grafikaurl = mysql_real_escape_string($_POST['foto']);
+        $nazwa = $conn->real_escape_string($_POST['prodname']);
+        $material = $conn->real_escape_string($_POST['material']);
+        $kolor = $conn->real_escape_string($_POST['kolory']);
+        $cena = $conn->real_escape_string($_POST['cena']);
+        $grafikaurl = $conn->real_escape_string($_POST['foto']);
 
         if($grafikaurl=="") {
           $_SESSION['error'] = $_SESSION['error']. "Musisz wybrać grafikę<br>";
           header('Location: ../index.php');
         } else {
             $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
-            mysql_query($query);
-            $idzlecenia=mysql_insert_id();
+            $conn->query($query);
+            $idzlecenia=$conn->insert_id();
             $foldertmp = "uploads/e-chromat_".$idzlecenia."/";
             $newfolder=mkdir($foldertmp, 0777);
             if(!$newfolder) {
@@ -509,7 +513,7 @@ if(isset($_SESSION['username'])) {
                 $filetxt=fopen($txt, "w") or die("Unable to open file!");
                 $teikstedwa = "\n" . $nazwa ."\nKolor: " . $kolor . "\nCena: " . $cena;
                 if(isset($_POST['komentarz'])) {
-                  $comm = mysql_real_escape_string($_POST['komentarz']);
+                  $comm = $conn->real_escape_string($_POST['komentarz']);
                   $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
                 }
                 fwrite($filetxt, $teikste);
@@ -533,18 +537,18 @@ if(isset($_SESSION['username'])) {
     }
 
     if(isset($_POST['tekstylia'])) {
-        $nazwa = mysql_real_escape_string($_POST['prodname']);
-        $material = mysql_real_escape_string($_POST['material']);
-        $cena = mysql_real_escape_string($_POST['cena']);
-        $grafikaurl = mysql_real_escape_string($_POST['foto']);
+        $nazwa = $conn->real_escape_string($_POST['prodname']);
+        $material = $conn->real_escape_string($_POST['material']);
+        $cena = $conn->real_escape_string($_POST['cena']);
+        $grafikaurl = $conn->real_escape_string($_POST['foto']);
 
         if($grafikaurl=="") {
           $_SESSION['error'] = $_SESSION['error']. "Musisz wybrać grafikę<br>";
           header('Location: ../index.php');
         } else {
         $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
-        mysql_query($query);
-        $idzlecenia=mysql_insert_id();
+        $conn->query($query);
+        $idzlecenia=$conn->insert_id();
         $foldertmp = "uploads/e-chromat_".$idzlecenia."/";
         $newfolder=mkdir($foldertmp, 0777);
         if(!$newfolder) {
@@ -571,13 +575,13 @@ if(isset($_SESSION['username'])) {
             }
             $filetxt=fopen($txt, "w") or die("Unable to open file!");
             if(isset($_POST['kolory'])) {
-              $kolor = mysql_real_escape_string($_POST['kolory']);
+              $kolor = $conn->real_escape_string($_POST['kolory']);
               $teikstedwa = "\n" . $nazwa . "\nKolor: " . $kolor . "\nCena: " . $cena;
             } else {
               $teikstedwa = "\n" . $nazwa . "\nCena: " . $cena;
             }
             if(isset($_POST['komentarz'])) {
-              $comm = mysql_real_escape_string($_POST['komentarz']);
+              $comm = $conn->real_escape_string($_POST['komentarz']);
               $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
             }
             fwrite($filetxt, $teikste);
@@ -601,9 +605,9 @@ if(isset($_SESSION['username'])) {
 
         // Zmiana hasła
     if (isset($_POST['passcommit'])) {
-        $password = mysql_real_escape_string($_POST['pass']);
-        $newpass = mysql_real_escape_string($_POST['newpass']);
-        $renewpass = mysql_real_escape_string($_POST['renewpass']);
+        $password = $conn->real_escape_string($_POST['pass']);
+        $newpass = $conn->real_escape_string($_POST['newpass']);
+        $renewpass = $conn->real_escape_string($_POST['renewpass']);
         // Warunki
         if (empty($password)) { $_SESSION['error'] = $_SESSION['error'] . 'Musisz podać stare hasło!<br>'; }
         if (empty($newpass)) { $_SESSION['error'] = $_SESSION['error'] . 'Musisz podać nowe hasło!<br>'; }
@@ -612,14 +616,14 @@ if(isset($_SESSION['username'])) {
         if (!isset($_SESSION['error'])) {
             $password = md5($password);
             $query="SELECT * FROM User WHERE login='$username' and password='$password'";
-            $result=mysql_query($query);
-            if (mysql_num_rows($result) == 0) {
+            $result=$conn->query($query);
+            if ($conn->num_rows($result) == 0) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Podałeś złe hasło!<br>'; }
             if($newpass != $renewpass) { $_SESSION['error'] = $_SESSION['error'] . 'Hasła się nie zgadzają!<br>'; }
 
             $newpass=md5($newpass);
             $query = "UPDATE User SET password='$newpass' where login='$username'";
-            $res = mysql_query($query);
+            $res = $conn->query($query);
             if(!$res) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd!<br>';
             }else {
@@ -633,21 +637,22 @@ if(isset($_SESSION['username'])) {
 
     // Zmiana danych osobowych
     if (isset($_POST['detcommit'])) {
-        $name = mysql_real_escape_string($_POST['name']);
-        $surname = mysql_real_escape_string($_POST['surname']);
-        $street = mysql_real_escape_string($_POST['street']);
-        $houseno = mysql_real_escape_string($_POST['houseno']);
-        $city = mysql_real_escape_string($_POST['city']);
-        $cicode = mysql_real_escape_string($_POST['cicode']);
-        $phoneno = mysql_real_escape_string($_POST['phoneno']);
+        $name = $conn->real_escape_string($_POST['name']);
+        $surname = $conn->real_escape_string($_POST['surname']);
+        $street = $conn->real_escape_string($_POST['street']);
+        $houseno = $conn->real_escape_string($_POST['houseno']);
+        $city = $conn->real_escape_string($_POST['city']);
+        $cicode = $conn->real_escape_string($_POST['cicode']);
+        $phoneno = $conn->real_escape_string($_POST['phoneno']);
 
         $sql = "SELECT id_us from User where login='$username'";
-        $tmp = mysql_query($sql);
-        $res=mysql_result($tmp,0);
+        $tmp = $conn->query($sql);
+        $tmp2 = $tmp->fetch_assoc();
+        $res=$tmp2["id_us"];
 
         if (!empty($name)) {
             $query="UPDATE User_Details SET name='$name' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (imię)<br>';
             }
@@ -655,7 +660,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($surname)) {
             $query="UPDATE User_Details SET lastname='$surname' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (nazwisko)<br>';
             }
@@ -663,7 +668,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($street)) {
             $query="UPDATE User_Details SET street='$street' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (ulica)<br>';
             }
@@ -671,7 +676,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($houseno)) {
             $query="UPDATE User_Details SET housenumber='$houseno' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (nr domu)<br>';
             }
@@ -679,7 +684,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($city)) {
             $query="UPDATE User_Details SET city='$city' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (miasto)<br>';
             }
@@ -687,7 +692,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($cicode)) {
             $query="UPDATE User_Details SET citycode='$cicode' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (kod pocztowy)<br>';
             }
@@ -695,7 +700,7 @@ if(isset($_SESSION['username'])) {
 
         if (!empty($phoneno)) {
             $query="UPDATE User_Details SET cellnumber='$phoneno' where id_us=$res";
-            $result=mysql_query($query);
+            $result=$conn->query($query);
             if($result === FALSE) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd wprowadzania! (nr telefonu)<br>';
             }
@@ -709,14 +714,15 @@ if(isset($_SESSION['username'])) {
     }
 
     if(isset($_POST['delete'])) {
-        $login = mysql_real_escape_string($_SESSION['username']);
+        $login = $conn->real_escape_string($_SESSION['username']);
         $query="select id_us from User where login='$login'";
-        $tmp=mysql_query($query);
-        $id=mysql_result($tmp, 0);
+        $tmp=$conn->query($query);
+        $tmp2 = $tmp->fetch_assoc();
+        $id=$tmp2["id_us"];
         $query="DELETE FROM User where id_us=$id";
         $query2="DELETE FROM User_Details where id_us=$id";
-        $res=mysql_query($query);
-        $res2=mysql_query($query2);
+        $res=$conn->query($query);
+        $res2=$conn->query($query2);
 
         session_destroy();
         header('Location: ../index.php');
@@ -724,13 +730,13 @@ if(isset($_SESSION['username'])) {
 
 } else {
     if (isset($_POST['reg_user'])) {
-        $username = mysql_real_escape_string($_POST['username']);
-        $email = mysql_real_escape_string($_POST['email']);
-        $password = mysql_real_escape_string($_POST['password']);
-        $repassword = mysql_real_escape_string($_POST['repassword']);
-        $cellnumber = mysql_real_escape_string($_POST['cellnumber']);
-        $name = mysql_real_escape_string($_POST['name']);
-        $lastname = mysql_real_escape_string($_POST['lastname']);
+        $username = $conn->real_escape_string($_POST['username']);
+        $email = $conn->real_escape_string($_POST['email']);
+        $password = $conn->real_escape_string($_POST['password']);
+        $repassword = $conn->real_escape_string($_POST['repassword']);
+        $cellnumber = $conn->real_escape_string($_POST['cellnumber']);
+        $name = $conn->real_escape_string($_POST['name']);
+        $lastname = $conn->real_escape_string($_POST['lastname']);
 
         if (empty($username)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'Login\' musi być wypełnione!<br>'; }
         if (empty($email)) { $_SESSION['error'] = $_SESSION['error'] . 'Pole \'E-Mail\' musi być wypełnione!<br>'; }
@@ -740,12 +746,12 @@ if(isset($_SESSION['username'])) {
 
         if (empty($repassword)) { $_SESSION['error'] = $_SESSION['error'] . 'Przepisz hasło!<br>'; }
         $query="SELECT * FROM User WHERE login='$username'";
-        $result=mysql_query($query);
-        if (mysql_num_rows($result) !== 0) {
+        $result=$conn->query($query);
+        if ($conn->num_rows($result) !== 0) {
             $_SESSION['error'] = $_SESSION['error'] . 'Użytkownik o takim loginie już istnieje!<br>'; }
         $query="SELECT * FROM User WHERE email='$email'";
-        $result=mysql_query($query);
-        if (mysql_num_rows($result) !== 0) {
+        $result=$conn->query($query);
+        if ($conn->num_rows($result) !== 0) {
             $_SESSION['error'] = $_SESSION['error'] . 'Użytkownik o takim adresie e-mail już istnieje!<br>'; }
         if ($password != $repassword) { $_SESSION['error'] = $_SESSION['error'] . 'Hasła się nie zgadzają!<br>'; }
 
@@ -753,12 +759,12 @@ if(isset($_SESSION['username'])) {
             $password = md5($password);
             $query = "INSERT INTO User (login, email, password, id_role)
                       VALUES('$username', '$email', '$password', 2);";
-            mysql_query($query);
+            $conn->query($query);
 
-            $id_us = mysql_insert_id();
+            $id_us = $conn->insert_id();
             $query2 = "INSERT INTO User_Details (id_us, name, lastname)
               VALUES('$id_us', '$name', '$lastname');";
-            mysql_query($query2);
+            $conn->query($query2);
 
             $_SESSION['success'] = "Możesz się teraz zalogować!";
             header('location: ../index.php');
@@ -768,8 +774,8 @@ if(isset($_SESSION['username'])) {
     }
 
     if (isset($_POST['login_user'])) {
-        $username = mysql_real_escape_string($_POST['username']);
-        $password = mysql_real_escape_string($_POST['password']);
+        $username = $conn->real_escape_string($_POST['username']);
+        $password = $conn->real_escape_string($_POST['password']);
 
         if (empty($username)) {
             $_SESSION['error'] = $_SESSION['error'] . 'Wymagany Login<br>';
@@ -781,20 +787,20 @@ if(isset($_SESSION['username'])) {
         if (!isset($_SESSION['error'])) {
             $password = md5($password);
             $query = "SELECT * FROM User WHERE login='$username' AND password='$password'";
-             $result = mysql_query($query);
+             $result = $conn->query($query);
             $query2 = "SELECT * FROM User WHERE email='$username' AND password='$password'";
-            $result2 = mysql_query($query2);
+            $result2 = $conn->query($query2);
 
-            if (mysql_num_rows($result) == 1 or mysql_num_rows($result2)==1) {
-		if(mysql_num_rows($result) ==1) {
-		  $_SESSION['username'] = $username;
-		}
-		else {
-		  $query = "SELECT login from User where email='$username'";
-		  $res = mysql_query($query);
-		  $login = mysql_result($res,0);
-		  $_SESSION['username'] = $login;
-		}
+            if ($result->num_rows == 1 or $result2->num_rows==1) {
+		            if($result->num_rows ==1) {
+		                $_SESSION['username'] = $username;
+		            } else {
+		                $query = "SELECT login from User where email='$username'";
+		                $res = $conn->query($query);
+                    $tmp2 = $res->fetch_assoc();
+		                $login = $tmp2["login"];
+		                $_SESSION['username'] = $login;
+		            }
                 $_SESSION['success'] = "Zalogowano";
                 header('location: ../index.php');
             } else {

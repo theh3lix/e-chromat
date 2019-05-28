@@ -49,28 +49,25 @@
 </div>
 <div class="product" id="historia" style="clear: both; display: none; max-height: none;">
     <?php
-        $connection = mysql_connect("*********","*********","*********");
-        if(!$connection) {
-            die("Database connection failed: " . mysql_error());
+        $conn = new mysqli("******","******","******", "******");
+        if($conn->connect_errno) {
+            die("Database connection failed: " . $conn->connect_errno);
         }
 
-        $db_select = mysql_select_db("*********",$connection);
-        if(!$db_select) {
-            die("Database selection failed: " . mysql_error());
-        }
-        $username = mysql_real_escape_string($_SESSION['username']);
-        mysql_query('SET NAMES utf8');
+        $username = $conn->real_escape_string($_SESSION['username']);
+        $conn->set_charset("utf-8");
         $queryid = "SELECT id_us from User where login='$username'";
-        $tmp = mysql_query($queryid);
-        $id = mysql_result($tmp,0);
+        $tmp = $conn->query($queryid);
+        $tmp2 = $tmp->fetch_assoc();
+        $id = $tmp2["id_us"];
         $query = "SELECT data, rodzaj_zlecenia, wymiary_odbitki, ilosc_odbitek, cena FROM Contract where id_us=$id order by id desc";
-        $res = mysql_query($query);
+        $res = $conn->query($query);
         $array = array("Data zlecenia:","Rodzaj zlecenia:","Wymiary odbitki:","Ilość odbitek", "Cena:");
         foreach($array as $i)
             echo '<span style="display: inline-block; width: 18%; text-align:center;">'.$i.'</span>';
         echo '<br>';
         echo '____________________________________________________________________________________________________________________________<br>';
-        while($rows = mysql_fetch_row($res)) {
+        while($rows = $res->fetch_row) {
             foreach($rows as $row)
                 echo '<span style="display: inline-block; width: 18%; text-align:center;">'.$row.'</span>';
             echo '<br>';
