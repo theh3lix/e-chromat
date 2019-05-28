@@ -40,17 +40,18 @@ const kubkiAr = [
     id: 1,
     name: "Kubek Biały",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k1.png",
     price: 17.9,
-    desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
+    desc: "Kubek ceramiczny do nadruku metodą sublimacji.<br>\
+            <b>Pojemność:</b> ok. 300ml<br>\
+            <b>Wysokość:</b> 93mm<br>\
+            <b>Średnica:</b> 79mm"
   },
   {
     id: 2,
     name: "Kolorowe Wnętrze",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Zielony", "Niebieski", "Fioletowy", "Czarny", "Pomarańczowy", "Błękitny", "Czerwony"],
     photo: "/e-chromat/imagess/produkty/k2.png",
     price: 18.9,
@@ -60,7 +61,6 @@ const kubkiAr = [
     id: 3,
     name: "Kubek Magiczny",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Błękitny", "Czerwony", "Niebieski", "Czarny"],
     photo: "/e-chromat/imagess/produkty/k3.png",
     price: 27,
@@ -70,7 +70,6 @@ const kubkiAr = [
     id: 4,
     name: "Kubek Latte",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k4.png",
     price: 19.9,
@@ -80,7 +79,6 @@ const kubkiAr = [
     id: 5,
     name: "Kubek Latte duży",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k5.png",
     price: 23.9,
@@ -90,7 +88,6 @@ const kubkiAr = [
     id: 6,
     name: "Kubek Mini",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k6.png",
     price: 15.9,
@@ -100,7 +97,6 @@ const kubkiAr = [
     id: 7,
     name: "Kubek z łyżeczką",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Zielony", "Czerwony", "Różowy", "Żółty", "Niebieski"],
     photo: "/e-chromat/imagess/produkty/k7.png",
     price: 20.9,
@@ -110,7 +106,6 @@ const kubkiAr = [
     id: 8,
     name: "Kufel Szroniony",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k8.png",
     price: 31.9,
@@ -124,14 +119,13 @@ const kubkiAr = [
     id: 9,
     name: "Kufel Biały",
     species: "kubek",
-    material: "Ceramika",
     colours: ["Biały"],
     photo: "/e-chromat/imagess/produkty/k9.png",
     price: 45,
     desc: "Kufel ceramiczny ze złotym paskiem do nadruku metodą sublimacji.<br>\
-            <b>pojemność:</b> ok.645ml<br>\
-            <b>średnica:</b> 80mm<br>\
-            <b>wysokość:</b> 170 mm"
+            <b>Pojemność:</b> ok. 645ml<br>\
+            <b>Średnica:</b> 80mm<br>\
+            <b>Wysokość:</b> 170 mm"
   }
 ];
 const poduszkiAr = [
@@ -139,7 +133,6 @@ const poduszkiAr = [
         id: 10,
         name: "Poduszka 40x40",
         species: "tekstylia",
-        material: "Mikrofibra",
         photo: "/e-chromat/imagess/produkty/p1.png",
         price: 26.9,
         desc: "Biała poszewka z mikrofibry z wypełnieniem i nadrukiem. <br>\
@@ -154,7 +147,6 @@ const poduszkiAr = [
         id: 11,
         name: "Poduszka Serce",
         species: "tekstylia",
-        material: "Mikrofibra",
         photo: "/e-chromat/imagess/produkty/p2.png",
         price: 31.9,
         desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
@@ -163,7 +155,6 @@ const poduszkiAr = [
         id: 12,
         name: "Śliniak",
         species: "tekstylia",
-        material: "Włókno bambusowe",
         photo: "/e-chromat/imagess/produkty/p3.png",
         price: 13.5,
         desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
@@ -176,19 +167,19 @@ const tekstyliaAr = [
         id: 13,
         name: "Torba Mała",
         species: "tekstylia",
-        material: "Tkanina stylonowo-nylonowa",
+        colours: ["Biały", "Czarny"],
         photo: "/e-chromat/imagess/produkty/t1.png",
         price: 40,
         desc: "Torba na ramię mała do nadruku metodą sublimacj, wykonana z tkaniny stylonowo-nylonowej. <br>\
             <b>Szerokość: </b> 22 cm<br>\
             <b>Wysokość:</b> 18 cm<br> \
             <b>Pole nadruku:</b> 30 x 17 cm <br>\
+            <b>Materiał:</b> Tkanina stylonowo-nylonowa<br> \
             <b>Kolor: </b> biały/czarny"    },
     {
         id: 14,
         name: "Fartuch",
         species: "tekstylia",
-        material: "Tworzywo sztuczne",
         photo: "/e-chromat/imagess/produkty/t2.png",
         price: 25.9,
         desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
@@ -197,7 +188,6 @@ const tekstyliaAr = [
         id: 15,
         name: "Koszulka",
         species: "tekstylia",
-        material: "Bawełna",
         photo: "/e-chromat/imagess/produkty/t3.png",
         price: 25,
         desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
@@ -209,7 +199,6 @@ const trendingAr = [
       id: 16,
       name: "Koszulka",
       species: "tekstylia",
-      material: "Bawełna",
       photo: "/e-chromat/imagess/produkty/t3.png",
       price: 25,
       desc: "Kubek ceramiczny o pojemności około 300ml, pokryty wysokiej jakości powłoką przeznaczoną do sublimacji. Kubek można bepziecznie myć w zmywarce, a jego odporność przetestowana przez producenta to aż 3000 cykli!"
@@ -218,7 +207,6 @@ const trendingAr = [
       id: 17,
       name: "Poduszka 40x40",
       species: "tekstylia",
-      material: "Mikrofibra",
       photo: "/e-chromat/imagess/produkty/p1.png",
       price: 26.9,
       desc: "Biała poszewka z mikrofibry z wypełnieniem i nadrukiem. <br>\
@@ -233,13 +221,14 @@ const trendingAr = [
       id: 18,
       name: "Torba Mała",
       species: "tekstylia",
-      material: "Tkanina stylonowo-nylonowa",
+      colours: ["Biały", "Czarny"],
       photo: "/e-chromat/imagess/produkty/t1.png",
       price: 40,
       desc: "Torba na ramię mała do nadruku metodą sublimacj, wykonana z tkaniny stylonowo-nylonowej. <br>\
           <b>Szerokość: </b> 22 cm<br>\
           <b>Wysokość:</b> 18 cm<br> \
           <b>Pole nadruku:</b> 30 x 17 cm <br>\
+          <b>Materiał:</b> Tkanina stylonowo-nylonowa<br> \
           <b>Kolor: </b> biały/czarny"
   }
 ];
@@ -350,7 +339,7 @@ const dzienMatkiAr = [
 
 function kolor(kolory) {
   return `
-<h4 style="float: left;padding-right: 10px; margin-top: 7px;">Kolor: \t</h4> <select name="kolory" class="foods-list input" style="height: 35px;margin-bottom: 10px; margin-top: 4px;">
+<select name="kolory" class="foods-list input" style="height: 35px;margin-bottom: 10px; margin-top: 4px;">
 ${kolory.map(kolor => `<option value="${kolor}">${kolor}</option>`).join("")}
 </select>
 `;
@@ -396,9 +385,8 @@ function trendingTemplate(product) {
         <form method="post" action=${server} enctype="multipart/form-data">
             <img class="product-photo" src="${product.photo}">
             <span class="product-span"><h2 class="product-name" style="float: left;">${product.name}</h2></span><br><br>
-            <button class="wybierz" id="btn${product.id}" onclick="document.getElementById('${product.id}').style.display='block'; return false;">Wybierz grafikę</button>
-            <h4>Materiał: ${product.material}</h4>
-            ${product.colours ? kolor(product.colours) : ""} <br><br>
+            <button class="wybierz" id="btn${product.id}" onclick="document.getElementById('${product.id}').style.display='block'; return false;">Wybierz grafikę</button><br>
+            ${product.colours ? kolor(product.colours) : ""}<br>
             <p style="clear: both;
               left: 10px;
               bottom: 10px;

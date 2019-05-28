@@ -476,6 +476,10 @@ if(isset($_SESSION['username'])) {
         $cena = mysql_real_escape_string($_POST['cena']);
         $grafikaurl = mysql_real_escape_string($_POST['foto']);
 
+        if($grafikaurl=="") {
+          $_SESSION['error'] = $_SESSION['error']. "Musisz wybrać grafikę<br>";
+          header('Location: ../index.php');
+        } else {
             $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
             mysql_query($query);
             $idzlecenia=mysql_insert_id();
@@ -524,6 +528,7 @@ if(isset($_SESSION['username'])) {
                     header('Location: ../index.php');
                 fclose($filetxt);
             }
+          }
 
     }
 
@@ -533,6 +538,10 @@ if(isset($_SESSION['username'])) {
         $cena = mysql_real_escape_string($_POST['cena']);
         $grafikaurl = mysql_real_escape_string($_POST['foto']);
 
+        if($grafikaurl=="") {
+          $_SESSION['error'] = $_SESSION['error']. "Musisz wybrać grafikę<br>";
+          header('Location: ../index.php');
+        } else {
         $query="INSERT INTO Contract (id_us, rodzaj_zlecenia, cena, data) VALUES ($id_us, '$nazwa', $cena, curdate())";
         mysql_query($query);
         $idzlecenia=mysql_insert_id();
@@ -561,7 +570,12 @@ if(isset($_SESSION['username'])) {
                 $_SESSION['error'] = $_SESSION['error'] . 'Błąd przy kopiowaniu pliku<br>';
             }
             $filetxt=fopen($txt, "w") or die("Unable to open file!");
-            $teikstedwa = "\n" . $nazwa . "\nCena: " . $cena;
+            if(isset($_POST['kolory'])) {
+              $kolor = mysql_real_escape_string($_POST['kolory']);
+              $teikstedwa = "\n" . $nazwa . "\nKolor: " . $kolor . "\nCena: " . $cena;
+            } else {
+              $teikstedwa = "\n" . $nazwa . "\nCena: " . $cena;
+            }
             if(isset($_POST['komentarz'])) {
               $comm = mysql_real_escape_string($_POST['komentarz']);
               $teikstedwa .= "\n\nKomentarz do zamówienia: \n" . $comm;
@@ -582,6 +596,7 @@ if(isset($_SESSION['username'])) {
                     header('Location: ../index.php');
             fclose($filetxt);
         }
+      }
     }
 
         // Zmiana hasła

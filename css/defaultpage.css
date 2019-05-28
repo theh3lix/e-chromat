@@ -216,7 +216,7 @@ body {
   }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 360px) {
   .input {
     width: 270px;
   }
